@@ -14,7 +14,11 @@ class ChaptersModel
     }
     public function setId ($id)
     {
-        $this->id = $id;
+        $id = (int)$id;
+
+        if ($id > 0) {
+            $this->id = $id;
+        }
     }
 
     public function getTitle ()
@@ -23,7 +27,9 @@ class ChaptersModel
     }
     public function setTitle ($title)
     {
-        $this->title = $title;
+        if (is_string($title)) {
+            $this->title = $title;
+        }
     }
 
     public function getMedia ()
@@ -32,7 +38,9 @@ class ChaptersModel
     }
     public function setMedia ($media)
     {
-        $this->media = $media;
+        if (is_string($media)) {
+            $this->media = $media;
+        }
     }
 
     public function getContent ()
@@ -41,7 +49,9 @@ class ChaptersModel
     }
     public function setContent ($content)
     {
-        $this->content = $content;
+        if (is_string($content)) {
+            $this->content = $content;
+        }
     }
 
     public function getDateTime ()
@@ -50,7 +60,7 @@ class ChaptersModel
     }
     public function setDateTime ($dateTime)
     {
-        $this->dateTime = $dateTime;
+        $this->dateTime = date('d/m/Y', strtotime($dateTime));
     }
 
     public function getIdUser ()
@@ -59,6 +69,8 @@ class ChaptersModel
     }
     public function setIdUser ($idUser)
     {
-        $this->idUser = $idUser;
+        if (is_string($idUser)) {
+            $this->idUser = $idUser;
+        }
     }
 }

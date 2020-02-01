@@ -19,7 +19,11 @@ class UsersModel
     //modification des données 
     public function setId ($id)
     {
-        $this->id = $id;
+        $id = (int)$id;
+
+        if ($id > 0) {
+            $this->id = $id;
+        }
     }
 
     public function getFirstName ()
@@ -28,7 +32,9 @@ class UsersModel
     }
     public function setFirstName ($firstName)
     {
-        $this->firstName = $firstName;
+        if (is_string($firstName)) {
+            $this->firstName = $firstName;
+        }
     }
     
     public function getLastName ()
@@ -37,7 +43,9 @@ class UsersModel
     }
     public function setLastName ($lastName)
     {
-        $this->lastName = $lastName;
+        if (is_string($lastName)) {
+            $this->lastName = $lastName;
+        }
     }
 
     public function getUserName ()
@@ -46,7 +54,9 @@ class UsersModel
     }
     public function setUserName ($userName)
     {
-        $this->userName = $userName;
+        if (is_string($userName)) {
+            $this->userName = $userName;
+        }
     }
 
     public function getMail ()
@@ -55,7 +65,9 @@ class UsersModel
     }
     public function setMail ($mail)
     {
-        $this->mail = $mail;
+        if (is_string($mail)) {
+            $this->mail = $mail;
+        }
     }
 
     public function getAvatar ()
@@ -64,7 +76,9 @@ class UsersModel
     }
     public function setAvatar ($avatar)
     {
-        $this->avatar = $avatar;
+        if (is_string($avatar)) {
+            $this->avatar = $avatar;
+        }
     }
 
     public function getRoles ()
@@ -73,7 +87,9 @@ class UsersModel
     }
     public function setRoles ($roles)
     {
-        $this->roles = $roles;
+        if (is_string($roles)) {
+            $this->roles = $roles;
+        }
     }
 
     public function getPassWord ()
@@ -82,6 +98,8 @@ class UsersModel
     }
     public function setPassWord ($passWord)
     {
-        $this->passWord = $passWord;
+        if (is_string($passWord)) {
+            $this->passWord = $passWord;
+        }
     }
 }

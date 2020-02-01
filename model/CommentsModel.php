@@ -15,7 +15,11 @@ class CommentsModel
     }
     public function setId ($id)
     {
-        $this->id = $id;
+        $id = (int)$id;
+
+        if ($id > 0) {
+            $this->id = $id;
+        }
     }
 
     public function getTitle ()
@@ -24,7 +28,9 @@ class CommentsModel
     }
     public function setTitle ($title)
     {
-        $this->title = $title;
+        if (is_string($title)) {
+            $this->title = $title;
+        }
     }
 
     public function getContent ()
@@ -33,7 +39,9 @@ class CommentsModel
     }
     public function setContent ($content)
     {
-        $this->id = $content;
+        if (is_string($content)) {
+            $this->content = $content;
+        }
     }
 
     public function getDateTime ()
@@ -42,7 +50,7 @@ class CommentsModel
     }
     public function setDateTime ($dateTime)
     {
-        $this->dateTime = $dateTime;
+        $this->dateTime = date('d/m/Y', strtotime($dateTime));
     }
 
     public function getReport ()
@@ -51,7 +59,9 @@ class CommentsModel
     }
     public function setReport ($report)
     {
-        $this->report = $report;
+        if (is_string($report)) {
+            $this->report = $report;
+        }
     }
 
     public function getIdUser ()
@@ -60,7 +70,9 @@ class CommentsModel
     }
     public function setIdUser ($idUser)
     {
-        $this->idUser = $idUser;
+        if (is_string($idUser)) {
+            $this->idUser = $idUser;
+        }
     }
 
     public function getIdChapter ()
@@ -69,6 +81,8 @@ class CommentsModel
     }
     public function setIdChapter ($idChapter)
     {
-        $this->idChapter = $idChapter;
+        if (is_string($idChapter)) {
+            $this->idChapter = $idChapter;
+        }
     }
 }
