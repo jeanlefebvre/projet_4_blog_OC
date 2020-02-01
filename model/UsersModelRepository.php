@@ -4,15 +4,7 @@ require_once ('UsersModel.php');
 
 class UsersModelRepository 
 {
-    public function findOneById ($id) 
-    {
         // Aller cherche r avec PDO en BDD et retourner un UsersModel ou null si il n'existe pas (eventuellement jette une exception)
-
-        $fakeUser = new UsersModel();
-        $fakeUser->setFirstName('Trump');
-        
-        return $fakeUser;
-    }
 
     public function findAllUsers ($id)
     {
