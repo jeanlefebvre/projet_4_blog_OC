@@ -11,6 +11,25 @@ class UsersModel
     private $roles;
     private $passWord;
 
+    // Constructeur
+    public function construct(array $data)
+    {
+        $this->hydrate($data);
+    }
+
+    // Hydratation
+    public function hydrate(array $data)
+    {
+
+        foreach ($data as $key => $value) {
+            $method = 'set' . ucfirst($key);
+
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
+    }
+
     //récupérer les données 
     public function getId ()
     {
