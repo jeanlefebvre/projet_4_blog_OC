@@ -14,10 +14,10 @@ class UsersModelRepository extends Model
     public function findUser ($id)
     {
         $connexion = getBdd();
-        $requete = SELECT * FROM `user` where id = '$id';
+        $requete = "SELECT * FROM `user` where id = '$id'";
         $stmt = $connexion->query($requete);
         $row = $stmt->fetchAll();
-        if (!empty(row)) 
+        if (!empty($row)) 
         {
             return $row[0];
         }
@@ -26,10 +26,10 @@ class UsersModelRepository extends Model
     public function readUser ($id)
     {
         $connexion = getBdd();
-        $requete = SELECT * FROM `user` where id = '$id';
+        $requete = "SELECT * FROM `user` where id = '$id'";
         $stmt = $connexion->query($requete);
         $row = $stmt->fetchAll();
-        if (!empty(row)) 
+        if (!empty($row)) 
         {
             return $row[0];
         }
@@ -56,7 +56,7 @@ class UsersModelRepository extends Model
         {
             $connexion = getBdd();
             $sql = "UPDATE `user` set firstName = '$firstName', lastName = '$lastName', userName = '$userName', mail = '$mail', avatar = '$avatar', password = '$passWord' WHERE id= '$id' ";
-            $stmt = $connexion->query($requete);
+            $stmt = $connexion->query($sql);
         }
         catch(PDOException $e)
         {
@@ -70,7 +70,7 @@ class UsersModelRepository extends Model
         {
             $connexion = getBdd();
             $sql = "DELETE `user` WHERE id= '$id' ";
-            $stmt = $connexion->query($requete);
+            $stmt = $connexion->query($sql);
         }
         catch(PDOException $e)
         {

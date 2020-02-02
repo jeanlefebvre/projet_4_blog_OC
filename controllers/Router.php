@@ -11,7 +11,7 @@ class Router
     {   
         try
         {
-            if(isset($_GET('url')))
+            if(null !== $_GET('url'))
             {
                 $ex = explode("?", $_SERVER['REQUEST_URI']);
                 $this->route = $ex[0]; 
