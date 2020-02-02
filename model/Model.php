@@ -26,10 +26,10 @@ abstract class Model
     protected function getAll($table, $obj)
     {
         $var = [];
-        $req = self::$_bdd->prepare('SELECT * FROM ' . $table . ' ORDER BY id DESC');
+        $req = $this->getBdd->prepare('SELECT * FROM ' . $table . ' ORDER BY id DESC');
         $req->execute();
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $var[] = new $obj($data); //On envoi dans la bonne classe un tableau. Par exemple ici on envoi les données dans Chapitre.php pour le traitement des données.
+            $var[] = new $obj($data); //On envoi dans la bonne classe un tableau. Par exemple ici on envoi les données dans usersModel.php pour le traitement des données.
         }
         return $var;
         $req->closeCursor();

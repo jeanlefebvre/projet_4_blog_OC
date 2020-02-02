@@ -11,12 +11,6 @@ class UsersModel
     private $roles;
     private $passWord;
 
-    // Constructeur
-    public function construct(array $data)
-    {
-        $this->hydrate($data);
-    }
-
     //récupérer les données 
     public function getId ()
     {
