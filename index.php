@@ -8,4 +8,4 @@ $router->addRouteAndController('/', new HomeController());
 
 $controller = $router->extractRouteFromGlobals();
 echo $controller->display();
- 
+

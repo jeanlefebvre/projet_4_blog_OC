@@ -11,6 +11,7 @@ class UsersModel
     private $roles;
     private $passWord;
 
+
     //récupérer les données 
     public function getId ()
     {

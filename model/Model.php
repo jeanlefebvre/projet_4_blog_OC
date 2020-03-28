@@ -1,6 +1,5 @@
 <?php
 
-
 abstract class Model
 {
     private static $_bdd;
@@ -20,18 +19,5 @@ abstract class Model
             self::setBdd();
             return self::$_bdd;
         }
-    }
-
-    // Récupération de toutes les données d'une table
-    protected function getAll($table, $obj)
-    {
-        $var = [];
-        $req = $this->getBdd->prepare('SELECT * FROM ' . $table . ' ORDER BY id DESC');
-        $req->execute();
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $var[] = new $obj($data); //On envoi dans la bonne classe un tableau. Par exemple ici on envoi les données dans usersModel.php pour le traitement des données.
-        }
-        return $var;
-        $req->closeCursor();
     }
 }

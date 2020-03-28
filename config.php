@@ -1,12 +1,12 @@
 <?php
 
 // Site url
-$url = "http://localhost/P4/";
+$url = "http://localhost/projet_4_blog_OC/";
 
 // Database
 $db = [
     'host'=> 'localhost',
     'username' => 'root',
     'password' => '',
-    'database' => 'projet4'
+    'database' => 'projet_4_oc'
 ];
