@@ -15,6 +15,9 @@
     </head>
     <body>
     {header}
+    {banner}
+    
+
     
     <!-- CONTENU -->
     <?= $content ?>
