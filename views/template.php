@@ -1,59 +1,59 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf8"/>
-        <title><?= $title ?? 'blog de Jean Forteroche' ?></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<?php
 
-        <!--googlefont-->
-        <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
-        <!-- bulma.io -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-        <link rel="stylesheet" href="css/main.css">
+class template
+{
+    // Tags array
+    private $tags = [];
 
+    // Template file
+    private $template;
 
-    </head>
-    <body>
-    <header>
-        <!-- MENU -->
-        <nav id="nav">
-            <H1 class="title-is-1">Le livre blog de Jean Forteroche</H1>
-            <i class="fas fa-bars menu_resp" id="menu_resp"></i>
-            <div class="menu_lien" id="menu_lien">
-                <div class="menu_liens">
-                    <i class="fas fa-times menu_resp_close" id="menu_resp_close"></i>
-                    <a class="nav-link" href="/accueil">Accueil</a>
-                    <a class="nav-link" href="/chapitres">Chapitres</a>
-                    <?php if ($_SESSION['connected'] === "yes") { ?>
-                        <a class="nav-link" href="<?= $url ?>profil/edit/<?= $_SESSION['userId'] ?>">Profil</a>
-                        <?php if ($_SESSION['permission'] === "1") { ?>
-                            <a class="nav-link" href="<?= $url ?>panel">Panel</a>
-                        <?php } ?>
-                        <a class="nav-link conButton" href="<?= $url ?>connexion/deconnexion">Déconnexion</a>
-                    <?php } else { ?>
-                        <a class="nav-link conButton" href="<?= $url ?>connexion">Connexion</a>
-                    <?php } ?>
-                </div>
-            </div>
-        </nav>
-    </header>
-    
-    <!-- CONTENU -->
-    <?= $content ?>
+    public function __construct($templateFile)
+    {
+        $this->template = $this->getFile($templateFile);
 
-    <!-- PIED DE PAGE -->
+        // If the template file is not accessible
+        if(!$this->template) {
+            return "Error! Can't load the template file $templateFile";
+        }
 
-    <footer>
-        <div class="social">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"> <i class="fab fa-twitter-square"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-        </div>
-        <div class="plan">
-            <a href="<?= $url ?>Accueil">Accueil</a>
-            <a href="<?= $url ?>Chapitres">Chapitres</a>
-        </div>
-    </footer>
-    </body>
-</html>
+    }
+
+    // Render the build template
+    public function render()
+    {
+        $this->replaceTags();
+
+        return $this->template;
+    }
+
+    // Set the {tag} with value
+    public function set($tag, $value)
+    {
+        $this->tags[$tag] = $value;
+    }
+
+    // Get the template file
+    public function getFile($file)
+    {
+        if(file_exists($file))
+        {
+            $file = file_get_contents($file);
+            return $file;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    // Replaces all {tags} with corresponding values from $tags array
+    private function replaceTags()
+    {
+        foreach ($this->tags as $tag => $value) {
+            $this->template = str_replace('{'.$tag.'}', $value, $this->template);
+        }
+
+        return true;
+    }
+}
