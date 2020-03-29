@@ -1,4 +1,5 @@
 <section class="auboutAuthor">
+    <h2 class="title is-2">A propos</h2>
     <h3 class="title is-3">Qui suis-je?</h3>    
     <P class="txtAuthor">
         <img src="media/autor.png" alt="portrait of the author" class="portrait">
