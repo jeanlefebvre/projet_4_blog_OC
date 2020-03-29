@@ -14,16 +14,13 @@
 
     </head>
     <body>
+    
     {header}
     {banner}
-    
+    {conceptBlog}
+    {previewNovel}
+    {newsLetter}
+    {footer}
 
-    
-    <!-- CONTENU -->
-    <?= $content ?>
-
-    <!-- PIED DE PAGE -->
-
-   
     </body>
 </html>
