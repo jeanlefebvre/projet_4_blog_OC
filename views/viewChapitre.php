@@ -1,5 +1,5 @@
 <?php
-require_once 'model/CommentModelRepository.php';
+require_once 'model/CommentRepository.php';
 if (isset($_POST['username'], $_POST['message'])) 
 {
     $message = new Message($_POST['username'], $_POST['message']);

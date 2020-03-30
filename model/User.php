@@ -1,5 +1,5 @@
 <?php
-class UsersModel
+class User
 {
     //attributs de la table
     private $id;

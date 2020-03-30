@@ -1,9 +1,9 @@
 <?php
 
 require_once ('Model.php');
-require_once ('UsersModel.php');
+require_once ('User.php');
 
-class UsersModelRepository extends Model
+class UserRepository extends Model
 {
 // CREATE
     public function create ($firstName, $lastName, $userName, $mail, $avatar, $roles, $passWord)
