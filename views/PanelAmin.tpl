@@ -1,7 +1,3 @@
-<?php
-require('config.php');
-
-?>
 <div class="container">
     <H2>Création de chapitre</H2>
     <form method="post">
