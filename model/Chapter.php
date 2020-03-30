@@ -1,5 +1,5 @@
 <?php
-class ChaptersModel 
+class Chapter 
 {
     private $id;
     private $title;
