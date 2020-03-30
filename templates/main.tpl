@@ -14,7 +14,7 @@
 
     </head>
     <body>
-    
+    <p>TOTO</p>
     {header}
     {banner}
     {conceptBlog}

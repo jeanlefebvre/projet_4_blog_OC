@@ -7,6 +7,8 @@ class HomeController
 {
     public function display ()
     {
+
+
         /*
         $usersModelRepository = new UsersModelRepository();
         $user = $usersModelRepository->find(1);
