@@ -1,6 +1,6 @@
 <?php
 
-require_once (__DIR__.'/../model/UsersModelRepository.php');
+require_once (__DIR__.'/../model/UserRepository.php');
 
 
 class HomeController
