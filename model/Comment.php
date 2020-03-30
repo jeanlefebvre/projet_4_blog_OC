@@ -1,5 +1,5 @@
 <?php
-class CommentsModel 
+class Comment
 {
     private $id;
     private $title;
