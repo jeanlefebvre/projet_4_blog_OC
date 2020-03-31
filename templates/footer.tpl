@@ -13,17 +13,17 @@
                 <li class="column is-3 has-text-weight-bold">Réseaux sociaux:</li>
                 <li class="column is-2">
                     <a class="icon">
-                        <i class="fab fa-pinterest-p has-text-white"></i>
+                        <i class="fab fa-pinterest-p has-text-black"></i>
                     </a>
                 </li>
                 <li class="column is-2">
                     <a class="icon">
-                        <i class="fab fa-facebook has-text-white"></i>
+                        <i class="fab fa-facebook has-text-black"></i>
                     </a>
                 </li>
                 <li class="column is-1.5">
                     <a class="icon">
-                        <i class="fab fa-twitter has-text-white"></i>
+                        <i class="fab fa-twitter has-text-black"></i>
                     </a>
                 </li>
             </ul> 
