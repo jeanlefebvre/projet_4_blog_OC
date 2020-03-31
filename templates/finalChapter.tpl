@@ -5,6 +5,7 @@
         <article class="media">
             <figure class="media-left">
                 <p class="image is-128x128">
+                    <!--import d'image de la bdd-->
                     <img src="https://bulma.io/images/placeholders/128x128.png">
                 </p>
             </figure>
