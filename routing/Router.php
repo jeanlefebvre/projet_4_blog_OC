@@ -8,12 +8,8 @@ class Router
 
     // extraire le path de l'URL pour retourner le controlleur associé  
     public function extractRouteFromGlobals() 
-    {   
-        $ex = explode("?", $_SERVER['REQUEST_URI']);
-        $this->route = $ex[0]; 
-
-        //vérifier que le controleur existe sinon renvoyer un controlleur par défaut
-        return $this->controllers[$this->route];
+    {                 
+        return $this->controllers[$_SERVER['PATH_INFO'] ?? '/'] ?? $this->controllers['/'];    
     }
     
     //sotcker les infos dans $controllers 

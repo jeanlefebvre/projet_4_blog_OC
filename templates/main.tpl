@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf8"/>
-        <title><?= $title ?? 'blog de Jean Forteroche' ?></title>
+        <title>blog de Jean Forteroche</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!--googlefont-->
@@ -14,7 +14,6 @@
 
     </head>
     <body>
-    <p>TOTO</p>
     {header}
     {banner}
     {conceptBlog}

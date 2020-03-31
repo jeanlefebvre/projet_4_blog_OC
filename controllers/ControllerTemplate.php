@@ -3,23 +3,20 @@
 require_once (__DIR__.'/../templateEngine/template.php');
 
 
-class ControllerTemplate
+abstract class ControllerTemplate
 {
-    public function display ()
+    public function setDefaultContent($tpl)
     {
-        // Initialize object
-        $tpl = new template('../template/main.tpl');
-
         // Set {xxx} as a xxx.tpl files
-        $tpl->set('header', $tpl->getFile('../template/header.tpl'));
-        $tpl->set('banner', $tpl->getFile('../template/banner.tpl'));
-        $tpl->set('conceptBlog', $tpl->getFile('../template/conceptBlog.tpl'));
-        $tpl->set('previewNovel', $tpl->getFile('../template/previewNovel.tpl'));
-        $tpl->set('newsLetter', $tpl->getFile('../template/newsLetter.tpl'));
-        $tpl->set('footer', $tpl->getFile('../template/footer.tpl'));
-
-        // Render the template
-        $tpl->render();
+        $tpl->set('header', $tpl->getFile(__DIR__.'/../templates/header.tpl'));
+        if (isset($_SESSION['connected']) && $_SESSION['connected'] === "yes") { 
+            $tpl->set('menuHeader', $tpl->getFile(__DIR__.'/../templates/menuHeaderConnected.tpl'));
+        } else {
+            $tpl->set('menuHeader', $tpl->getFile(__DIR__.'/../templates/menuHeaderDisconnected.tpl'));
+        }
+        // condition si je suis connecté ou pas connecté appelé le bon menu
+        $tpl->set('banner', $tpl->getFile(__DIR__.'/../templates/banner.tpl'));
+        $tpl->set('footer', $tpl->getFile(__DIR__.'/../templates/footer.tpl'));
     }
   
 }

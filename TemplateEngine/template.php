@@ -41,10 +41,9 @@ class template
             $file = file_get_contents($file);
             return $file;
         }
-        else
-        {
-            return false;
-        }
+
+        throw new Exception("fichier $file non trouvé", 1);
+        
     }
 
     // Replaces all {tags} with corresponding values from $tags array
