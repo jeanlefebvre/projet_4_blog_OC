@@ -6,7 +6,7 @@ include_once('../controllers/NovelController.php');
 
 $router = new Router();
 $router->addRouteAndController('/', new HomeController());
-$router->addRouteAndController('/', new NovelController());
+$router->addRouteAndController('/roman', new NovelController());
 
 
 $controller = $router->extractRouteFromGlobals();

@@ -6,7 +6,9 @@
                     <i class="fas fa-times menu_resp_close" id="menu_resp_close"></i>
                     <a class="nav-link has-text-black" href="/">Accueil</a>
                     <a class="nav-link has-text-black" href="/apropos">A propos</a>
+                    <a class="nav-link has-text-black" href="/roman">Roman</a>
                     <a class="nav-link has-text-black" href="/chapitres">Chapitres</a>
+                    <a class="nav-link has-text-black" href="/contact">Contact</a>
                     <a class="nav-link has-text-black conButton" href="/connexion">Connexion</a>
                 </div>
             </div>

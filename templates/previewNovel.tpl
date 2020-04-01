@@ -1,6 +1,6 @@
 <section class="previewNovel">
     <h3 class="title is-3">Romans</h3>
-    <a class="nav-link has-text-black" href="/Chapitres">
+    <a class="nav-link has-text-black" href="/roman">
         <h4 class="title is-4">"Billet simple pour l'Alaska"</h4>    
         <article class="media">
             <figure class="media-left">
@@ -13,8 +13,8 @@
                     <p>
                     <strong>par Jean Forteroche</strong>
                     <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                    Ici, vous trouverez le quatrième de couverture, écrite par votre serviteur Jean Forteroche. 
+                    Ce livre-blog par de ....
                     </p>
                 </div>
             </div>
