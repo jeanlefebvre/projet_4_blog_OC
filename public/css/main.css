@@ -28,7 +28,7 @@ img{
     padding-top: 10%;
     
 }
-.txtAuthor, .txtBlog, .novel, .newsLetterContainer, .navbar{
+.txtAuthor, .txtBlog, .novel, .newsLetterContainer, .navbar, .containerChapter{
     background-color: silver;
     border: thick double black;
 }
@@ -38,10 +38,15 @@ img{
 .txtAuthor{
     height: 160px;
 }
+
 .novel{
-    height: 150px;
+    height: 220px;
 }
 .formNews{
     margin: auto;
     width: 300px;
+}
+.containerChapter{
+    margin: 10px;
+    padding-top: 10px;
 }

@@ -1,12 +1,12 @@
 <section class="finalChapter">
-    <div class="containerChapitre">
+    <div class="containerChapter">
         <!--import du titre du chapitre correspondant dans la bdd-->
-        <h4 class="title is-4">{titleChapitre}</h4>
+        <h4 class="title is-4 titleChapter">{titleChapter}</h4>
         <article class="media">
             <figure class="media-left">
                 <p class="image is-128x128">
                     <!--import d'image du chapitre correspondant dans la bdd-->
-                    <img src="{media}">
+                    <img class="image" src="{mediaChapter}">
                 </p>
             </figure>
             <div class="media-content">
@@ -14,10 +14,10 @@
                     <p>
                     <strong>par Jean Forteroche</strong>
                     <!--import de la date du chapitre correspondant dans la bdd-->
-                    <strong>{dateTimeChapitre}</strong>
+                    <strong>{dateTimeChapter}</strong>
                     <br>
                     <!--import du text du chapitre correspondant dans la bdd-->
-                    {contentChapitre}
+                    {contentChapter}
                     </p>
                 </div>
             </div>

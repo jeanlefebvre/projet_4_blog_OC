@@ -27,6 +27,9 @@
           </a>
   
           <div class="navbar-dropdown">
+            <a class="navbar-item nav-link has-text-black" href="/chapitres">
+              Tous Chapitres 
+            </a>
             <a class="navbar-item nav-link has-text-black" href="/chapitre1">
               Chapitre 1
             </a>

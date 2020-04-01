@@ -15,15 +15,15 @@ class ChapterController extends ControllerTemplate
 
         $chapterRepository = new ChapterRepository(); 
         $Chapters = $chapterRepository->findAll();
-        
+
         $chapterContent = '';
         foreach($Chapters as $chapter)
         {
             $chaptertpl = new template(__DIR__.'/../templates/chapter.tpl');
-            $chaptertpl->set('titleChapitre', $chapter->getTitle());
-            //rajout media
-            $chaptertpl->set('dateTimeChapitre', $chapter->getDateTime());
-            $chaptertpl->set('contentChapitre', $chapter->getContent());
+            $chaptertpl->set('titleChapter', $chapter->getTitle());
+            $chaptertpl->set('mediaChapter', $chapter->getMedia());
+            $chaptertpl->set('dateTimeChapter', $chapter->getDateTime());
+            $chaptertpl->set('contentChapter', $chapter->getContent());
 
             $chapterContent .= $chaptertpl->render();
         }
