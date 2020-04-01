@@ -24,9 +24,6 @@ class HomeController extends ControllerTemplate
 
         $tpl->set('content', $homeContent);
         
-        
-
-
         return $tpl->render();
     }
 } 

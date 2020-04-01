@@ -1,6 +1,6 @@
 <section class="previewNovel">
     <h3 class="title is-3">Romans</h3>
-    <a class="nav-link has-text-black" href="/roman">
+    <a class="nav-link has-text-black" href="/chapitres">
         <article class="novel">
             <h4 class="title is-4">"Billet simple pour l'Alaska"</h4>
             <figure class="media-left">
