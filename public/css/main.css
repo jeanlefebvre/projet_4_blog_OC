@@ -10,6 +10,12 @@ img{
    
     padding: 10px;
 }
+.menu{
+    margin-top: 7%;
+}
+.navbar{
+    background-color: silver;
+}
 .title{
     color: black;
 }
@@ -22,11 +28,15 @@ img{
     padding-top: 10%;
     
 }
-.txtAuthor, .txtBlog, .novel, .newsLetterContainer{
+.txtAuthor, .txtBlog, .novel, .newsLetterContainer, .navbar{
+    background-color: silver;
     border: thick double black;
 }
 .title{
     padding-left: 10px;
+}
+.txtAuthor{
+    height: 160px;
 }
 .novel{
     height: 150px;
