@@ -37,6 +37,7 @@ class ChapterRepository extends Model
         $chapter->bindParam(':id', $id, PDO::PARAM_INT);
         $chapter->execute();
     }
+
 // UPDATE
     public function update ($id, $title, $media, $content, $dateTime, $idUSer)
     {

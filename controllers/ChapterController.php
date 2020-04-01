@@ -7,21 +7,30 @@ require_once (__DIR__.'/../model/CommentRepository.php');
 require_once (__DIR__.'/ControllerTemplate.php');
 
 
-class NovelController extends ControllerTemplate
+class ChapterController extends ControllerTemplate
 {
     public function display ()
     {
         $tpl = new template(__DIR__.'/../templates/main.tpl');
-        $chapter = new chapter(__DIR__.'/../model/Chapter.php');
-        $comment = new comment(__DIR__.'/../model/Comment.php');
+        $chapterRepository = new ChapterRepository(); 
+        $Chapters = $chapterRepository->findAll();
+        $chapterContent = '';
+        foreach($Chapters as $chapter)
+        {
+            $chaptertpl = new template(__DIR__.'/../templates/chapter.tpl');
+            $chaptertpl->set('titleChapitre', $chapter->getTitle());
+            //rajout media
+            $chaptertpl->set('dateTimeChapitre', $chapter->getDateTime());
+            $chaptertpl->set('contentChapitre', $chapter->getContent());
+
+            $chapterContent .= $chaptertpl->render();
+        }
         
         $this->setDefaultContent($tpl);
-
-        $tpl->set('finalChapter', $tpl->getFile(__DIR__.'/../templates/finalChapter.tpl'));
-                                                
-        $tpl->set('titleChapitre', $chapter->getTitle(__DIR__.'/../model/Chapter.php'));
-        $tpl->set('dateTimeChapitre', $chapter->getDateTime(__DIR__.'/../model/Chapter.php'));
-        $tpl->set('contentChapitre', $chapter->getContent(__DIR__.'/../model/Chapter.php'));
+        $tpl->set('conceptBlog', '');
+        $tpl->set('previewNovel', '');
+                                        
+        $tpl->set('content', $chapterContent);
 
         $tpl->set('commentChapter', $tpl->getFile(__DIR__.'/../templates/commentChapter.tpl'));
 

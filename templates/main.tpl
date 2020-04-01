@@ -14,12 +14,12 @@
 
     </head>
     <body>
-    {header}
-    {banner}
-    {conceptBlog}
-    {previewNovel}
-    {newsLetter}
-    {footer}
-
+        {header}
+        {banner}
+            {conceptBlog}
+            {previewNovel}
+            {content} 
+            {newsLetter} 
+        {footer}
     </body>
 </html>

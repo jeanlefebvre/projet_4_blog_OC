@@ -13,10 +13,11 @@ class NovelController extends ControllerTemplate
         $chapter = new chapter(__DIR__.'/../model/Chapter.php');
         
         $this->setDefaultContent($tpl);
+        $tpl->set('conceptBlog', '');
 
         $tpl->set('previewNovel', $tpl->getFile(__DIR__.'/../templates/previewNovel.tpl'));
 
-        $tpl->set('finalChapter', $tpl->getFile(__DIR__.'/../templates/finalChapter.tpl'));
+        $tpl->set('chapter', $tpl->getFile(__DIR__.'/../templates/Chapter.tpl'));
                                                 
         $tpl->set('titleChapitre', $chapter->getTitle(__DIR__.'/../model/Chapter.php'));
         $tpl->set('dateTimeChapitre', $chapter->getDateTime(__DIR__.'/../model/Chapter.php'));
