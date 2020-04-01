@@ -16,10 +16,7 @@
     <body>
         {header}
         {banner}
-            {conceptBlog}
-            {previewNovel}
-            {content} 
-            {newsLetter} 
+        {content} 
         {footer}
     </body>
 </html>

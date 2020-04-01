@@ -12,8 +12,10 @@ class ChapterController extends ControllerTemplate
     public function display ()
     {
         $tpl = new template(__DIR__.'/../templates/main.tpl');
+
         $chapterRepository = new ChapterRepository(); 
         $Chapters = $chapterRepository->findAll();
+        
         $chapterContent = '';
         foreach($Chapters as $chapter)
         {
