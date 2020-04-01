@@ -2,11 +2,9 @@
     <h3 class="title is-3">Romans</h3>
     <a class="nav-link has-text-black" href="/roman">
         <h4 class="title is-4">"Billet simple pour l'Alaska"</h4>    
-        <article class="media">
+        <article class="novel">
             <figure class="media-left">
-                <p class="image is-128x128">
-                    <img src="https://bulma.io/images/placeholders/128x128.png">
-                </p>
+                    <img class="image is-128x128 is-pulled-left" src="media/livre.jpg">
             </figure>
             <div class="media-content">
                 <div class="content">

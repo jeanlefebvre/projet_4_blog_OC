@@ -1,8 +1,37 @@
 body {
     background-color: gainsboro;
+    color: black;
+}
+p, .novel, .newsLetterContainer{
+    margin: 10px;
+    padding: 10px;
+}
+img{
+   
+    padding: 10px;
+}
+.title{
+    color: black;
 }
 .banner{
     height: 600px;
     width: 1920px;
     background-image: url(../media/bannerBlog.jpg);
+}
+.titleBlog{
+    padding-top: 10%;
+    
+}
+.txtAuthor, .txtBlog, .novel, .newsLetterContainer{
+    border: thick double black;
+}
+.title{
+    padding-left: 10px;
+}
+.novel{
+    height: 150px;
+}
+.formNews{
+    margin: auto;
+    width: 300px;
 }

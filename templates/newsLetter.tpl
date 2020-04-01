@@ -1,15 +1,17 @@
 <section class="newsLetter">
-    <div class="containre">
-        <H3 class="title is-3">Inscrivez-vous à la newsletter</H3>
-        <p>À chaque nouveau chapitre soyez les premières à connaître la suite de l'histoire.</p>
+    
+    <H3 class="title is-3 has-text-centered">Inscrivez-vous à la newsletter</H3>
+
+    <div class="newsLetterContainer">
+        <p class="has-text-centered">À chaque nouveau chapitre soyez les premières à connaître la suite de l'histoire.</p>
          
 
-        <form type="post">
+        <form class="formNews" type="post">
             <div class="field">
                 <label class="label">Nom</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input is-success" type="text" placeholder="Text input" value="Votre nom">
-                    <span class="icon is-small is-left">
+                    <input class="input is-black" type="text" placeholder="Text input" value="Votre nom">
+                    <span class="icon is-small is-left has-text-black">
                         <i class="fas fa-user"></i>
                     </span>
                 </div>
@@ -18,8 +20,8 @@
             <div class="field">
                 <label class="label">Email</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input is-danger" type="email" placeholder="Email input" value="Votre e-mail">
-                    <span class="icon is-small is-left">
+                    <input class="input is-black" type="email" placeholder="Email input" value="Votre e-mail">
+                    <span class="icon is-small is-left has-text-black">
                         <i class="fas fa-envelope"></i>
                     </span>
                 </div>
