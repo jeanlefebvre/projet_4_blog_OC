@@ -33,9 +33,11 @@ class ChapterRepository extends Model
     public function find ($id)
     {
         $connexion = $this->getBdd();
-        $chapter = $connexion->prepare('SELECT * FROM `chapter` WHERE id='.$id);
-        $chapter->bindParam(':id', $id, PDO::PARAM_INT);
-        $chapter->execute();
+        $preparation = $connexion->prepare('SELECT * FROM `chapter` WHERE id='.$id);
+        $preparation->setFetchMode(PDO::FETCH_CLASS, 'Chapter');
+        $preparation->bindParam(':id', $id, PDO::PARAM_INT);
+        $preparation->execute();
+        return $preparation->fetch();
     }
 
 // UPDATE

@@ -30,16 +30,16 @@
             <a class="navbar-item nav-link has-text-black" href="/chapitres">
               Tous Chapitres 
             </a>
-            <a class="navbar-item nav-link has-text-black" href="/chapitre1">
+            <a class="navbar-item nav-link has-text-black" href="/chapitre?id=1">
               Chapitre 1
             </a>
-            <a class="navbar-item nav-link has-text-black" href="/chapitre2">
+            <a class="navbar-item nav-link has-text-black" href="/chapitre?id=2">
               Chapitre 2
             </a>
-            <a class="navbar-item nav-link has-text-black" href="/chapitre3">
+            <a class="navbar-item nav-link has-text-black" href="/chapitre?id=3">
               Chapitre 3
             </a>
-             <a class="navbar-item nav-link has-text-black" href="/chapitre4">
+             <a class="navbar-item nav-link has-text-black" href="/chapitre?id=4">
               Chapitre 4
             </a>
            

@@ -35,7 +35,8 @@ class UserRepository extends Model
     public function find ($id)
     {
         $connexion = $this->getBdd();
-        $user = $connexion->prepare('SELECT * FROM `user` WHERE id='.$id);
+        $preparation = $connexion->prepare('SELECT * FROM `user` WHERE id='.$id);
+        $preparation->setFetchMode(PDO::FETCH_CLASS, 'user');
         $user->bindParam(':id', $id, PDO::PARAM_INT);
         $user->execute();
     }

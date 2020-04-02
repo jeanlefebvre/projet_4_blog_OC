@@ -2,7 +2,7 @@
 class Comment
 {
     private $id;
-    private $title;
+    private $user;
     private $content;
     private $dateTime;
     private $report;
@@ -28,14 +28,14 @@ class Comment
         }
     }
 
-    public function getTitle ()
+    public function getUserName ()
     {
-        return $this->title;
+        return $this->user;
     }
-    public function setTitle ($title)
+    public function setUserName ($user)
     {
-        if (is_string($title)) {
-            $this->title = $title;
+        if (is_string($user)) {
+            $this->user = $user;
         }
     }
 

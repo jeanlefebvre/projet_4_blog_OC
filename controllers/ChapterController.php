@@ -17,13 +17,13 @@ class ChapterController extends ControllerTemplate
         $chapterContent = '';
         foreach($Chapters as $chapter)
         {
+            
             $chaptertpl = new template(__DIR__.'/../templates/chapter.tpl');
             $chaptertpl->set('idChapter', $chapter->getId());
             $chaptertpl->set('titleChapter', $chapter->getTitle());
             $chaptertpl->set('mediaChapter', $chapter->getMedia());
             $chaptertpl->set('dateTimeChapter', $chapter->getDateTime());
             $chaptertpl->set('contentChapter', $chapter->getContent());
-
             $chapterContent .= $chaptertpl->render();
         }
         
@@ -32,8 +32,6 @@ class ChapterController extends ControllerTemplate
         $tpl->set('previewNovel', '');
                                         
         $tpl->set('content', $chapterContent);
-
-        $tpl->set('commentChapter', $tpl->getFile(__DIR__.'/../templates/commentChapter.tpl'));
 
         $tpl->set('newsLetter', $tpl->getFile(__DIR__.'/../templates/newsLetter.tpl'));
 

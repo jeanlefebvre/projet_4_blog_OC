@@ -34,10 +34,24 @@ class CommentRepository extends Model
     public function find ($id)
     {
         $connexion = $this->getBdd();
-        $comment = $connexion->prepare('SELECT * FROM `comment` WHERE id='.$id);
+        $preparation = $connexion->prepare('SELECT * FROM `comment` WHERE id='.$id);
+        $preparation->setFetchMode(PDO::FETCH_CLASS, 'Comment');
         $comment->bindParam(':id', $id, PDO::PARAM_INT);
         $comment->execute();
+        return $preparation->fetch();
     }
+//FiND ALL by IdChapter
+    public function findAllByIdChapter()
+    {
+        $connexion = $this->getBdd();
+        $preparation = $connexion->prepare('SELECT * FROM `comment` WHERE idChapter='.$idChapter);
+        $preparation->setFetchMode(PDO::FETCH_CLASS, 'Comment');
+        $comment->bindParam(':idChapter', $idChapter, PDO::PARAM_INT);
+        $comment->execute();
+        return $preparation->fetch();
+    
+    }
+
 // UPDATE
     public function update ($id, $title, $media, $content, $dateTime, $idUSer)
     {
