@@ -2,8 +2,6 @@
 
 require_once (__DIR__.'/../model/Chapter.php');
 require_once (__DIR__.'/../model/ChapterRepository.php');
-require_once (__DIR__.'/../model/Comment.php');
-require_once (__DIR__.'/../model/CommentRepository.php');
 require_once (__DIR__.'/ControllerTemplate.php');
 
 
