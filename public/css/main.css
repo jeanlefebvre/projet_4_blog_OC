@@ -2,7 +2,7 @@ body {
     background-color: gainsboro;
     color: black;
 }
-p, .novel, .newsLetterContainer{
+p, .novel, .newsLetterContainer, .containerContact{
     margin: 10px;
     padding: 10px;
 }
@@ -28,7 +28,7 @@ img{
     padding-top: 10%;
     
 }
-.txtAuthor, .txtBlog, .novel, .newsLetterContainer, .navbar, .containerChapter{
+.txtAuthor, .txtBlog, .novel, .newsLetterContainer, .navbar, .containerChapter, .containerContact{
     background-color: silver;
     border: thick double black;
 }
@@ -49,4 +49,8 @@ img{
 .containerChapter{
     margin: 10px;
     padding-top: 10px;
+}
+.formContact{
+    margin: auto;
+    width: 500px;
 }
