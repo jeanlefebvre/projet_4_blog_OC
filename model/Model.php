@@ -12,12 +12,13 @@ abstract class Model
         self::$_bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
     }
 
-    // Récupére la connexion a la bdd
+    // Récupére la connexion a la bdd et la retourne
     protected function getBdd()
     {
         if (self::$_bdd == null) {
             self::setBdd();
-            return self::$_bdd;
-        }
+        } 
+        return self::$_bdd;
     }
+    
 }
