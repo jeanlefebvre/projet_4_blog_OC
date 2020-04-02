@@ -1,7 +1,7 @@
 <section class="finalChapter">
     <div class="containerChapter">
         <!--import du titre du chapitre correspondant dans la bdd-->
-        <h4 class="title is-4 titleChapter">{titleChapter}</h4>
+        <h4 class="title is-4 titleChapter">Chapitre {idChapter} : {titleChapter}</h4>
         <article class="media">
             <figure class="media-left">
                 <p class="image is-128x128">

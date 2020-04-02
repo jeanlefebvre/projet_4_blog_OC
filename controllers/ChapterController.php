@@ -20,6 +20,7 @@ class ChapterController extends ControllerTemplate
         foreach($Chapters as $chapter)
         {
             $chaptertpl = new template(__DIR__.'/../templates/chapter.tpl');
+            $chaptertpl->set('idChapter', $chapter->getId());
             $chaptertpl->set('titleChapter', $chapter->getTitle());
             $chaptertpl->set('mediaChapter', $chapter->getMedia());
             $chaptertpl->set('dateTimeChapter', $chapter->getDateTime());
