@@ -3,7 +3,7 @@
     <H3 class="title is-3 has-text-centered">Inscrivez-vous à la newsletter</H3>
 
     <div class="newsLetterContainer">
-        <p class="has-text-centered">À chaque nouveau chapitre soyez les premières à connaître la suite de l'histoire.</p>
+        <p class="has-text-centered">À chaque nouveau chapitre, soyez le première à connaître la suite de l'histoire.</p>
          
 
         <form class="formNews" type="post">
