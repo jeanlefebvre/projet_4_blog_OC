@@ -2,7 +2,7 @@ body {
     background-color: gainsboro;
     color: black;
 }
-p, .novel, .newsLetterContainer, .containerContact, .containerFormConnexion{
+p, .novel, .newsLetterContainer, .containerContact, .containerFormConnexion, .commentChapterForm, .containerCommentDisplay{
     margin: 10px;
     padding: 10px;
 }
@@ -28,7 +28,7 @@ img{
     padding-top: 10%;
     
 }
-.txtAuthor, .txtBlog, .novel, .newsLetterContainer, .navbar, .containerChapter, .containerContact, .containerFormConnexion{
+.txtAuthor, .txtBlog, .novel, .newsLetterContainer, .navbar, .containerChapter, .containerContact, .containerFormConnexion, .commentChapterForm, .containerCommentDisplay{
     background-color: silver;
     border: thick double black;
 }
@@ -42,10 +42,15 @@ img{
 .novel{
     height: 220px;
 }
-.formNews{
+.formNews, {
     margin: auto;
     width: 300px;
 }
+.commentForm, .comment, .formNews{
+    margin: auto;
+    width: 600px;
+}
+
 .containerChapter{
     margin: 10px;
     padding-top: 10px;

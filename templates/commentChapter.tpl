@@ -1,5 +1,8 @@
 <section class="commentChapter">
-    <form method="get">
+  
+  <div class="commentChapterForm">
+    <h4 class="title is-4">Laissez un commentaire</h4>
+    <form class="commentForm" action="/addcomment" method="post">
         <div class="field">
             <label class="label">Pseudo</label>
             <div class="control">
@@ -19,4 +22,5 @@
               <button class="button is-link">Valider</button>
             </div>
     </form>
+  </div>
 </section>

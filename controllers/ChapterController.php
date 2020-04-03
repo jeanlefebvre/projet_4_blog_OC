@@ -20,10 +20,10 @@ class ChapterController extends ControllerTemplate
             
             $chaptertpl = new template(__DIR__.'/../templates/chapter.tpl');
             $chaptertpl->set('idChapter', $chapter->getId());
-            $chaptertpl->set('titleChapter', $chapter->getTitle());
+            $chaptertpl->set('titleChapter', strip_tags($chapter->getTitle()));
             $chaptertpl->set('mediaChapter', $chapter->getMedia());
             $chaptertpl->set('dateTimeChapter', $chapter->getDateTime());
-            $chaptertpl->set('contentChapter', $chapter->getContent());
+            $chaptertpl->set('contentChapter', strip_tags($chapter->getContent()));
             $chapterContent .= $chaptertpl->render();
         }
         

@@ -12,19 +12,25 @@ class DisplayOneChapterController extends ControllerTemplate
     public function display ()
     {
         $tpl = new template(__DIR__.'/../templates/main.tpl');
+        $this->setDefaultContent($tpl);
 
         $chapterRepository = new ChapterRepository(); 
-        $id= $_GET['id'];
+        
+        $id= $_GET['id'] ?? 0;
         $chapter = $chapterRepository->find($id);
-     
+        if($chapter == false){
+            $tpl->set('content', '<h2 class="title is-2 has-text-centered">Ce chapitre n\'est pas encore disponible</h2>');
+            return $tpl->render();
+        }
+    
         $displayonechapterContent = '';
         // affiche le chapitre
         $chaptertpl = new template(__DIR__.'/../templates/chapter.tpl');
         $chaptertpl->set('idChapter', $chapter->getId());
-        $chaptertpl->set('titleChapter', $chapter->getTitle());
+        $chaptertpl->set('titleChapter', strip_tags($chapter->getTitle()));
         $chaptertpl->set('mediaChapter', $chapter->getMedia());
         $chaptertpl->set('dateTimeChapter', $chapter->getDateTime());
-        $chaptertpl->set('contentChapter', $chapter->getContent());
+        $chaptertpl->set('contentChapter', strip_tags($chapter->getContent()));
         $displayonechapterContent .= $chaptertpl->render();
         
         //affiche le formulaire de commentaire
@@ -42,14 +48,11 @@ class DisplayOneChapterController extends ControllerTemplate
             $commentdisplay = new template(__DIR__.'/../templates/commentDisplay.tpl');
             $commentdisplay->set('userComment', $comment->getUserName());
             $commentdisplay->set('dateTimeComment', $comment->getDateTime());
-            $commentdisplay->set('contentComment', $comment->getContent());
+            $commentdisplay->set('contentComment', strip_tags($comment->getContent()));
             $displayonechapterContent .= $commentdisplay->render();
     
         }
       
-
-
-        $this->setDefaultContent($tpl);
         $tpl->set('conceptBlog', '');
         $tpl->set('previewNovel', '');
                                         

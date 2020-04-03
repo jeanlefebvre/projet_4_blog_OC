@@ -6,14 +6,14 @@ require_once ('Comment.php');
 class CommentRepository extends Model
 {
 // CREATE
-    public function create ($title, $content, $dateTime, $report, $idUser, $idChapter)
+    public function create ($user, $content, $dateTime, $report, $idUser, $idChapter)
     {
         $connexion = $this->getBdd();
         $comment = $connexion->prepare ('INSERT INTO Comment
-            (`title`, `content`, `dateTime`, `report`, `idUser`, `idChapter`)
+            (`user`, `content`, `dateTime`, `report`, `idUser`, `idChapter`)
              VALUES 
-            (:title, :content, :dateTime, :report, :idUser, :idChapter)')->fetch(PDO::FETCH_CLASS, 'Comment');
-        $comment->bindParam(':title', $title, PDO::PARAM_STR);
+            (:user, :content, :dateTime, :report, :idUser, :idChapter)')->fetch(PDO::FETCH_CLASS, 'Comment');
+        $comment->bindParam(':user', $user, PDO::PARAM_STR);
         $comment->bindParam(':content', $content, PDO::PARAM_STR);
         $comment->bindParam(':dateTime', $dateTime, PDO::PARAM_STR);
         $comment->bindParam(':report', $media, PDO::PARAM_STR);
@@ -50,12 +50,12 @@ class CommentRepository extends Model
     }
 
 // UPDATE
-    public function update ($id, $title, $media, $content, $dateTime, $idUSer)
+    public function update ($id, $user, $media, $content, $dateTime, $idUSer)
     {
         try 
         {
             $connexion = $this->getBdd();
-            $sql = "UPDATE `comment` set title = '$title', content = '$content', dateTime = '$dateTime', report = '$report', idUser = '$idUser' WHERE id= '$id', idChapter = '$idChapter' ";
+            $sql = "UPDATE `comment` set user = '$user', content = '$content', dateTime = '$dateTime', report = '$report', idUser = '$idUser' WHERE id= '$id', idChapter = '$idChapter' ";
             $stmt = $connexion->query($sql);
         }
         catch(PDOException $e)

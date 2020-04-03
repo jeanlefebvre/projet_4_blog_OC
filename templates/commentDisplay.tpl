@@ -1,18 +1,19 @@
 <section class="commentDisplay">
     <div class="containerCommentDisplay">
-        <h5 class="title is-5 titleChapter">Commentaire</h5>
+        <h4 class="title is-4 titleChapter">Commentaire</h4>
         <article class="comment">
             <div class="comment-content">
                 <div class="content">
                     <p>
-                    <strong>{userComment}</strong>
-                    <strong>{dateTimeComment}</strong>
+                    de <strong>{userComment}</strong>
+                    du <strong>{dateTimeComment}</strong>
                     <br>
                     {contentComment}
                     </p>
                 </div>
             </div>
+            <button class="button is-danger">Signaler</button>
         </article>
-        <button class="button is-danger">Signaler</button>
+        
     </div>
 </section>
