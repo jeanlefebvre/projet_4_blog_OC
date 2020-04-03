@@ -5,7 +5,7 @@ require_once (__DIR__.'/../model/ChapterRepository.php');
 require_once (__DIR__.'/ControllerTemplate.php');
 
 
-class ChapterController extends ControllerTemplate
+class ChaptersController extends ControllerTemplate
 {
     public function display ()
     {

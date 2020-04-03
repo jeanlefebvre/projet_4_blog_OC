@@ -34,8 +34,8 @@ class DisplayOneChapterController extends ControllerTemplate
         $displayonechapterContent .= $chaptertpl->render();
         
         //affiche le formulaire de commentaire
-        $commentchapter = new template(__DIR__.'/../templates/commentChapter.tpl');
-        $displayonechapterContent .= $commentchapter->render();
+        $commentForm = new template(__DIR__.'/../templates/commentForm.tpl');
+        $displayonechapterContent .= $commentForm->render();
 
         //affiche tous les commentaires du chapitre
         $commentRepository = new CommentRepository();        
