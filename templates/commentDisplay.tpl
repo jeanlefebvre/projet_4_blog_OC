@@ -12,7 +12,7 @@
                     </p>
                 </div>
             </div>
-            <button class="button is-danger">Signaler</button>
+             <input class="button is-danger is-ligth" name="submitCommentForm" type="submit" value="Signaler">
         </article>
         
     </div>

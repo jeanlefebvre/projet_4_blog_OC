@@ -16,7 +16,7 @@ class DisplayOneChapterController extends ControllerTemplate
 
         $chapterRepository = new ChapterRepository(); 
         
-        $id= $_GET['id'] ?? 0;
+        $id = $_GET['id'] ?? 0;
         $chapter = $chapterRepository->find($id);
         if($chapter == false){
             $tpl->set('content', '<h2 class="title is-2 has-text-centered">Ce chapitre n\'est pas encore disponible</h2>');
@@ -35,6 +35,7 @@ class DisplayOneChapterController extends ControllerTemplate
         
         //affiche le formulaire de commentaire
         $commentForm = new template(__DIR__.'/../templates/commentForm.tpl');
+        $commentForm->set('idChapter', $chapter->getId());
         $displayonechapterContent .= $commentForm->render();
 
         //affiche tous les commentaires du chapitre

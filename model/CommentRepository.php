@@ -6,20 +6,19 @@ require_once ('Comment.php');
 class CommentRepository extends Model
 {
 // CREATE
-    public function create ($user, $content, $dateTime, $report, $idUser, $idChapter)
+    public function create ($user, $content, $idChapter)
     {
         $connexion = $this->getBdd();
-        $comment = $connexion->prepare ('INSERT INTO Comment
-            (`user`, `content`, `dateTime`, `report`, `idUser`, `idChapter`)
+        $preparation = $connexion->prepare ('INSERT INTO Comment
+            (`user`, `content`, `dateTime`,`idChapter`)
              VALUES 
-            (:user, :content, :dateTime, :report, :idUser, :idChapter)')->fetch(PDO::FETCH_CLASS, 'Comment');
-        $comment->bindParam(':user', $user, PDO::PARAM_STR);
-        $comment->bindParam(':content', $content, PDO::PARAM_STR);
-        $comment->bindParam(':dateTime', $dateTime, PDO::PARAM_STR);
-        $comment->bindParam(':report', $media, PDO::PARAM_STR);
-        $comment->bindParam(':idUser', $idUser, PDO::PARAM_STR);
-        $comment->bindParam(':idChapter', $idUser, PDO::PARAM_STR);
-        $comment->execute();
+            (:user, :content, :dateTime, :idChapter)');
+        $dateTime = (new DateTime())->format('Y-m-d');
+        $preparation->bindParam(':user', $user, PDO::PARAM_STR);
+        $preparation->bindParam(':content', $content, PDO::PARAM_STR);
+        $preparation->bindParam(':dateTime', $dateTime, PDO::PARAM_STR);
+        $preparation->bindParam(':idChapter', $idChapter, PDO::PARAM_STR);
+        $preparation->execute();
     }
     
 // FIND ALL or READ ALL
