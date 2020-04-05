@@ -9,6 +9,7 @@ include_once('../controllers/DisplayOneChapterController.php');
 include_once('../controllers/ContactController.php');
 include_once('../controllers/ConnexionController.php');
 include_once('../controllers/AddComment.php');
+include_once('../controllers/ReportComment.php');
 
 $router = new Router();
 $router->addRouteAndController('/', new HomeController());
@@ -19,6 +20,7 @@ $router->addRouteAndController('/chapitre', new DisplayOneChapterController());
 $router->addRouteAndController('/contact', new ContactController());
 $router->addRouteAndController('/connexion', new ConnexionController());
 $router->addRouteAndController('/addcomment', new AddComment());
+$router->addRouteAndController('/report', new ReportComment());
 
 
 $controller = $router->extractRouteFromGlobals();

@@ -33,7 +33,7 @@ class CommentRepository extends Model
     public function find ($id)
     {
         $connexion = $this->getBdd();
-        $preparation = $connexion->prepare('SELECT * FROM `comment` WHERE id='.$id);
+        $preparation = $connexion->prepare('SELECT * FROM `comment` WHERE id = :id');
         $preparation->setFetchMode(PDO::FETCH_CLASS, 'comment');
         $comment->bindParam(':id', $id, PDO::PARAM_INT);
         $comment->execute();
@@ -62,6 +62,14 @@ class CommentRepository extends Model
             echo $sql . "<br>" . $e->getMessage();
         }
     }
+// Incremente Report
+    public function report ($id)
+    {
+        $connexion = $this->getBdd();
+        $preparation = $connexion->prepare('UPDATE `comment` set report = report+1 WHERE id = :id');
+        $preparation->execute();
+    }
+
 // DELETE
     public function delete ($id)
     {
