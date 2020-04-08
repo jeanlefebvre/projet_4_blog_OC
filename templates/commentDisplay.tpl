@@ -7,6 +7,7 @@
                     <p>
                     de <strong>{userComment}</strong>
                     du <strong>{dateTimeComment}</strong>
+                        <span class="idComment">commentaire n° {idComment}</span>
                     <br>
                     {contentComment}
                     </p>
@@ -14,8 +15,7 @@
             </div>
             <form action="/report" method="post">
             <input type="hidden" name="idComment" value="{idComment}">
-            <input type="hidden" name="idChapter" value="{idChapter}">
-            <input class="button is-danger is-ligth" name="reportComment" type="submit" value="Signaler">
+            <input class="button is-danger" name="reportComment" type="submit" value="Signaler">
             </form>
         </article>
         

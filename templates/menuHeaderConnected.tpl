@@ -43,12 +43,16 @@
               Chapitre 4
             </a>
            
-          </div>
+          </div>     
         </div>
-  
-          <a class="navbar-item nav-link has-text-black" href="/contact">
-          Contact
-          </a>
+
+        <a class="navbar-item nav-link has-text-black" href="/contact">
+        Contact
+        </a>
+
+        <a class="navbar-item nav-link has-text-black" href="/Admin">
+          Administrer
+        </a>
   
       </div>
   
@@ -56,7 +60,7 @@
         <div class="buttons navbar-item">
          
             <a class="button is-light nav-link has-text-black" href="/disconnect">
-              Connexion
+              Déconnexion
             </a>
         </div>
       </div>

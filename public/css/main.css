@@ -20,7 +20,7 @@ img{
     color: black;
 }
 .banner{
-    height: 600px;
+    height: 500px;
     width: 1920px;
     background-image: url(../media/bannerBlog.jpg);
 }
@@ -42,7 +42,7 @@ img{
 .novel{
     height: 220px;
 }
-.formNews, {
+.formNews {
     margin: auto;
     width: 300px;
 }
@@ -50,7 +50,6 @@ img{
     margin: auto;
     width: 600px;
 }
-
 .containerChapter{
     margin: 10px;
     padding-top: 10px;

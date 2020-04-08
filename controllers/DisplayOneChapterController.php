@@ -47,11 +47,11 @@ class DisplayOneChapterController extends ControllerTemplate
         foreach($comments as $comment)
         {
             $commentdisplay = new template(__DIR__.'/../templates/commentDisplay.tpl');
+            $commentdisplay->set('idComment', $comment->getId());
             $commentdisplay->set('userComment', $comment->getUserName());
             $commentdisplay->set('dateTimeComment', $comment->getDateTime());
             $commentdisplay->set('contentComment', strip_tags($comment->getContent()));
             $displayonechapterContent .= $commentdisplay->render();
-    
         }
       
         $tpl->set('conceptBlog', '');

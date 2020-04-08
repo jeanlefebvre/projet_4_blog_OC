@@ -67,6 +67,7 @@ class CommentRepository extends Model
     {
         $connexion = $this->getBdd();
         $preparation = $connexion->prepare('UPDATE `comment` set report = report+1 WHERE id = :id');
+        $preparation->bindParam(':id', $id, PDO::PARAM_INT);
         $preparation->execute();
     }
 

@@ -6,25 +6,36 @@ require_once (__DIR__.'/../model/CommentRepository.php');
 
 class ReportComment extends ControllerTemplate
 {
+    /*
+    quand j'utilise le btn signaler j'incremante le 'report' de la bdd
+    si le 'report' == 0 alors ok
+    si le 'report' > 0 alors signaler dans le panelAdmin
+    si le 'report' >= 5 caché le comment pour les utilisateurs
+    */
     public function display ()
     {
-       
-        $commentRepository = new CommentRepository();
+        $tpl = new template(__DIR__.'/../templates/main.tpl');
+        $this->setDefaultContent($tpl);
 
-        if(isset($_POST['submitReportComment']))
+        $report = '';
+
+        $reportTpl = new template(__DIR__.'/../templates/reportAdded.tpl');
+        $report .= $reportTpl->render();
+
+        $tpl->set('content', $report);
+
+        return $tpl->render();
+
+        $tpl->set('content', $report);
+        
+        if(isset($_POST['reportComment']))
         {
-            $idReportComment = '';
+            $commentRepository = new CommentRepository();
 
-            $commentDisplaytpl = new template(__DIR__.'/../templates/commentDisplay.tpl');
-            
-            $reportComment .= $commentDisplaytpl->render();
-
-            $id = $idReportComment;
+            $id = $_POST['idComment']; /*idComment */;
             $commentRepository->report($id);
         }
 
-        header('location:/chapitre?id='.$idChapter);
-        return '';
     }
     
     
