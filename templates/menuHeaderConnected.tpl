@@ -1,9 +1,6 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
       </a>
     </div>
   
@@ -58,10 +55,9 @@
   
       <div class="navbar-end">
         <div class="buttons navbar-item">
-         
-            <a class="button is-light nav-link has-text-black" href="/disconnect">
-              Déconnexion
-            </a>
+          <form class="commentForm" action="/deconnexion" method="post">
+            <input class="button is-light" name="disconnectBtn" type="submit" value="Déconnexion">
+          </form>
         </div>
       </div>
     </div>
