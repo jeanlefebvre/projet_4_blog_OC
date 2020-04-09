@@ -1,4 +1,5 @@
 <?php
-session_start();
-unset($_SESSION['connected']);
+
+session_destroy();
+unset($_SESSION);
 header('Location:/');

@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 include_once('../routing/Router.php');
 include_once('../controllers/HomeController.php');
@@ -23,7 +24,6 @@ $router->addRouteAndController('/connexion', new ConnexionController());
 $router->addRouteAndController('/addcomment', new AddComment());
 $router->addRouteAndController('/report', new ReportComment());
 //$router->addRouteAndController('/admin', new Admin());
-
 
 $controller = $router->extractRouteFromGlobals();
 echo $controller->display();

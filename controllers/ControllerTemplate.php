@@ -11,19 +11,20 @@ abstract class ControllerTemplate
 
         $tpl->set('banner', $tpl->getFile(__DIR__.'/../templates/banner.tpl'));
 
-        $tpl->set('menuHeader', $tpl->getFile(__DIR__.'/../templates/menuHeaderDisconnected.tpl'));
-    
+        if (($_SESSION['connected'] ?? 0) === 1) {
+            $tpl->set('menuHeader', $tpl->getFile(__DIR__.'/../templates/menuHeaderConnected.tpl'));
+        } else {
+            $tpl->set('menuHeader', $tpl->getFile(__DIR__.'/../templates/menuHeaderDisconnected.tpl'));
+        }
+       
         $tpl->set('footer', $tpl->getFile(__DIR__.'/../templates/footer.tpl'));
     }
-
-    function connected ():bool {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start(); 
-            $_SESSION['connected'] = 1;
-            header('location:/admin');
-
-            $tpl->set('menuHeader', $tpl->getFile(__DIR__.'/../templates/menuHeaderConnected.tpl'));
-        }  
+//securise l'admin 
+    public function __construct () {
+        if (($_SESSION['connected'] ?? 0) !== 1 && strpos($_SERVER['PATH_INFO'] ?? '/' , '/admin') === 0) {
+            header('location:/connexion');  
+                    
+        }
     }
   
 }

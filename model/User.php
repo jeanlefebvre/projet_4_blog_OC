@@ -9,7 +9,7 @@ class User
     private $mail;
     private $avatar;
     private $roles;
-    private $passWord;
+    private $passwordHash;
 
 
     //récupérer les données 
@@ -92,21 +92,15 @@ class User
             $this->roles = $roles;
         }
     }
-
-    public function getPassWord ()
+    public function getPasswordHash ()
     {
-        return $this->passWord;
+        return $this->passwordHash;
     }
-    public function setPassWord ($passWord)
+    public function setPasswordHash ($PasswordHash)
     {
-        if (is_string($passWord)) {
-            $this->passWord = $passWord;
+        if (is_string($PasswordHash)) {
+            $this->passwordHash = $PasswordHash;
         }
-    }
-
-    public function getPassWordHash ()
-    {
-        return $this->passWordHash;
     }
    
 }

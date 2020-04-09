@@ -6,20 +6,20 @@ require_once ('User.php');
 class UserRepository extends Model
 {
 // CREATE
-    public function create ($firstName, $lastName, $login, $mail, $avatar, $roles, $passWord)
+    public function create ($firstName, $lastName, $login, $mail, $avatar, $roles, $passWordHash)
     {
         $connexion = $this->getBdd();
         $preparation = $connexion->prepare ('INSERT INTO User
-            (`firstName`, `lastName`, `login`, `mail`, `avatar`,`roles`, `passWord`)
+            (`firstName`, `lastName`, `login`, `mail`, `avatar`,`roles`, `passWordHash`)
              VALUES 
-            (:firstName, :lastName, :login, :mail, :avatar,:roles, :passWord)')->fetch(PDO::FETCH_CLASS, 'User');
+            (:firstName, :lastName, :login, :mail, :avatar,:roles, :passWordHash)')->fetch(PDO::FETCH_CLASS, 'User');
         $preparation->bindParam(':firstName', $firstName, PDO::PARAM_STR);
         $preparation->bindParam(':lastName', $lastName, PDO::PARAM_STR);
         $preparation->bindParam(':login', $login, PDO::PARAM_STR);
         $preparation->bindParam(':mail', $mail, PDO::PARAM_STR);
         $preparation->bindParam(':avatar', $avatar, PDO::PARAM_STR);
         $preparation->bindParam(':roles', $roles, PDO::PARAM_STR);
-        $preparation->bindParam(':passWord', $passWord, PDO::PARAM_STR);
+        $preparation->bindParam(':passWordHash', $passWordHash, PDO::PARAM_STR);
         $preparation->execute();
     }
     
@@ -45,21 +45,29 @@ class UserRepository extends Model
     public function findByLogin ($login)
     {
         $connexion = $this->getBdd();
-        $preparation = $connexion->prepare('SELECT * FROM `user` WHERE login='.$login);
+        $preparation = $connexion->prepare('SELECT * FROM `user` WHERE login=:login');
         $preparation->setFetchMode(PDO::FETCH_CLASS, 'user');
-        $preparation->bindParam(':login', $login, PDO::PARAM_INT);
+        $preparation->bindParam(':login', $login, PDO::PARAM_STR);
         $preparation->execute();
         return $preparation->fetch();
     }
 
 // UPDATE
-    public function update ($id, $firstName, $lastName, $login, $mail, $avatar, $passWord)
+    public function update ($id, $firstName, $lastName, $login, $mail, $avatar, $passWordHash)
     {
         try 
         {
             $connexion = $this->getBdd();
-            $sql = "UPDATE `user` set firstName = '$firstName', lastName = '$lastName', login = '$login', mail = '$mail', avatar = '$avatar', password = '$passWord' WHERE id= '$id' ";
-            $stmt = $connexion->query($sql);
+            $preparation = $connexion->prepare("UPDATE `user` set firstName =:firstName, lastName =:lastName, login =:login, mail =:mail, avatar =:avatar, passWordHash =:passWordHash WHERE id=:id");
+            $preparation->bindParam(':lastName', $lastName, PDO::PARAM_STR);
+            $preparation->bindParam(':login', $login, PDO::PARAM_STR);
+            $preparation->bindParam(':mail', $mail, PDO::PARAM_STR);
+            $preparation->bindParam(':avatar', $avatar, PDO::PARAM_STR);
+            $preparation->bindParam(':roles', $roles, PDO::PARAM_STR);
+            $preparation->bindParam(':passWordHash', $passWordHash, PDO::PARAM_STR);
+            $preparation->bindParam(':firstName', $firstName, PDO::PARAM_STR);
+            $preparation->bindParam(':id', $id, PDO::PARAM_INT);
+            $preparation->execute();
         }
         catch(PDOException $e)
         {
@@ -72,8 +80,9 @@ class UserRepository extends Model
         try 
         {
             $connexion = $this->getBdd();
-            $sql = "DELETE `user` WHERE id= '$id' ";
-            $stmt = $connexion->query($sql);
+            $preparation = $connexion->prepare("DELETE `user` WHERE id=:id");
+            $preparation->bindParam(':id', $id, PDO::PARAM_INT);
+            $preparation->execute();
         }
         catch(PDOException $e)
         {

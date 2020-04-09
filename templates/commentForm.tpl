@@ -13,7 +13,7 @@
           <div class="field">
             <label class="label">Message</label>
             <div class="control">
-              <textarea class="textarea" name="commentContent" placeholder="Votre message" minlength="10" required></textarea>
+              <textarea id="textarea" class="textarea" name="commentContent" placeholder="Votre message"></textarea>
             </div>
           </div>
           

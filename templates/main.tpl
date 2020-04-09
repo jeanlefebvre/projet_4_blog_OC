@@ -22,5 +22,9 @@
 
          <!-- fontawesome -->
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <!-- tinyMCE -->
+       <script src="https://cdn.tiny.cloud/1/pi0blugiysjnxiimrh409f8tsuhpc083evajdknuqpxya8vn/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>tinymce.init({selector:'#textarea'});</script>
+        
     </body>
 </html>

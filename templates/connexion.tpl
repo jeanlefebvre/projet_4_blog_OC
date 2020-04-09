@@ -6,7 +6,7 @@
         <div class="field">
             <label class="label">Login</label>
             <div class="control">
-              <input class="input" type="text" name="user" placeholder="Login" required>
+              <input class="input" type="text" name="login" placeholder="Login" required>
             </div>
           </div>
 
