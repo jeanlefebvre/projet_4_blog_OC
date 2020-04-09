@@ -6,21 +6,21 @@ require_once ('User.php');
 class UserRepository extends Model
 {
 // CREATE
-    public function create ($firstName, $lastName, $userName, $mail, $avatar, $roles, $passWord)
+    public function create ($firstName, $lastName, $login, $mail, $avatar, $roles, $passWord)
     {
         $connexion = $this->getBdd();
-        $user = $connexion->prepare ('INSERT INTO User
-            (`firstName`, `lastName`, `userName`, `mail`, `avatar`,`roles`, `passWord`)
+        $preparation = $connexion->prepare ('INSERT INTO User
+            (`firstName`, `lastName`, `login`, `mail`, `avatar`,`roles`, `passWord`)
              VALUES 
-            (:firstName, :lastName, :userName, :mail, :avatar,:roles, :passWord)')->fetch(PDO::FETCH_CLASS, 'User');
-        $user->bindParam(':firstName', $firstName, PDO::PARAM_STR);
-        $user->bindParam(':lastName', $lastName, PDO::PARAM_STR);
-        $user->bindParam(':userName', $userName, PDO::PARAM_STR);
-        $user->bindParam(':mail', $mail, PDO::PARAM_STR);
-        $user->bindParam(':avatar', $avatar, PDO::PARAM_STR);
-        $user->bindParam(':roles', $roles, PDO::PARAM_STR);
-        $user->bindParam(':passWord', $passWord, PDO::PARAM_STR);
-        $user->execute();
+            (:firstName, :lastName, :login, :mail, :avatar,:roles, :passWord)')->fetch(PDO::FETCH_CLASS, 'User');
+        $preparation->bindParam(':firstName', $firstName, PDO::PARAM_STR);
+        $preparation->bindParam(':lastName', $lastName, PDO::PARAM_STR);
+        $preparation->bindParam(':login', $login, PDO::PARAM_STR);
+        $preparation->bindParam(':mail', $mail, PDO::PARAM_STR);
+        $preparation->bindParam(':avatar', $avatar, PDO::PARAM_STR);
+        $preparation->bindParam(':roles', $roles, PDO::PARAM_STR);
+        $preparation->bindParam(':passWord', $passWord, PDO::PARAM_STR);
+        $preparation->execute();
     }
     
 // FIND ALL or READ ALL
@@ -35,18 +35,30 @@ class UserRepository extends Model
     public function find ($id)
     {
         $connexion = $this->getBdd();
-        $preparation = $connexion->prepare('SELECT * FROM `user` WHERE id='.$id);
+        $preparation = $connexion->prepare('SELECT * FROM `user` WHERE id=.:id');
         $preparation->setFetchMode(PDO::FETCH_CLASS, 'user');
-        $user->bindParam(':id', $id, PDO::PARAM_INT);
-        $user->execute();
+        $preparation->bindParam(':id', $id, PDO::PARAM_INT);
+        $preparation->execute();
+        return $preparation->fetch();
     }
+//FIND ONE BY LOGIN
+    public function findByLogin ($login)
+    {
+        $connexion = $this->getBdd();
+        $preparation = $connexion->prepare('SELECT * FROM `user` WHERE login='.$login);
+        $preparation->setFetchMode(PDO::FETCH_CLASS, 'user');
+        $preparation->bindParam(':login', $login, PDO::PARAM_INT);
+        $preparation->execute();
+        return $preparation->fetch();
+    }
+
 // UPDATE
-    public function update ($id, $firstName, $lastName, $userName, $mail, $avatar, $passWord)
+    public function update ($id, $firstName, $lastName, $login, $mail, $avatar, $passWord)
     {
         try 
         {
             $connexion = $this->getBdd();
-            $sql = "UPDATE `user` set firstName = '$firstName', lastName = '$lastName', userName = '$userName', mail = '$mail', avatar = '$avatar', password = '$passWord' WHERE id= '$id' ";
+            $sql = "UPDATE `user` set firstName = '$firstName', lastName = '$lastName', login = '$login', mail = '$mail', avatar = '$avatar', password = '$passWord' WHERE id= '$id' ";
             $stmt = $connexion->query($sql);
         }
         catch(PDOException $e)

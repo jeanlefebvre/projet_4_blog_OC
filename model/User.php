@@ -103,4 +103,10 @@ class User
             $this->passWord = $passWord;
         }
     }
+
+    public function getPassWordHash ()
+    {
+        return $this->passWordHash;
+    }
+   
 }

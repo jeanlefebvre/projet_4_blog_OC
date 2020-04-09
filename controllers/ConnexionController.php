@@ -9,20 +9,12 @@ class ConnexionController extends ControllerTemplate
     {
         $tpl = new template(__DIR__.'/../templates/main.tpl');
         $this->setDefaultContent($tpl);
-
-
-        function connected ():bool {
-            if (session_status() === PHP_SESSION_NONE) {
-                session_start();
-                $_SESSION['connected'] = 1;
-                header('location:/admin');
-            }
-        }
   
-        $password = '$2y$12$EE3ECByorejakwzISrWrD.J.jwsi/BJVvviTDByR6qkwoYjT1PPki';
+        $user = 'UserBDD';
+        $password = '$2y$12$KS.nvtsUsB5mQV1KpmcHOOnwdMHyRyXOq1mKjhy030ZR1p10mxIHm';
 
         if (isset($_POST['submitConnexion'])) {
-            if ($_POST['user'] === 'userBDD' && password_verify($_POST['password'], $password)) {
+            if ($_POST['user'] === $user && password_verify($_POST['password'], $password)) {
                 session_start();
                 $_SESSION['connected'] = 1;
                 header('location:/admin');
@@ -31,8 +23,6 @@ class ConnexionController extends ControllerTemplate
                 return $tpl->render();
             }
         }
-
-
 
         $connexiontContent = '';
 

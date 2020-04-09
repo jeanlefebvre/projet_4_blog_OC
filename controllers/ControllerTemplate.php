@@ -11,16 +11,19 @@ abstract class ControllerTemplate
 
         $tpl->set('banner', $tpl->getFile(__DIR__.'/../templates/banner.tpl'));
 
-        // condition si je suis 'connecté' dans la session = menu connecté appelé le bon menu
-
-
-        if (isset($_SESSION['connected']) && $_SESSION['connected'] === 1) { 
-            $tpl->set('menuHeader', $tpl->getFile(__DIR__.'/../templates/menuHeaderConnected.tpl'));
-        } else {
-            $tpl->set('menuHeader', $tpl->getFile(__DIR__.'/../templates/menuHeaderDisconnected.tpl'));
-        }
-        
+        $tpl->set('menuHeader', $tpl->getFile(__DIR__.'/../templates/menuHeaderDisconnected.tpl'));
+    
         $tpl->set('footer', $tpl->getFile(__DIR__.'/../templates/footer.tpl'));
+    }
+
+    function connected ():bool {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start(); 
+            $_SESSION['connected'] = 1;
+            header('location:/admin');
+
+            $tpl->set('menuHeader', $tpl->getFile(__DIR__.'/../templates/menuHeaderConnected.tpl'));
+        }  
     }
   
 }
