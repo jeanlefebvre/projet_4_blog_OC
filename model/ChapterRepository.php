@@ -9,16 +9,16 @@ class ChapterRepository extends Model
     public function create ($title, $media, $content, $dateTime, $idUser)
     {
         $connexion = $this->getBdd();
-        $chapter = $connexion->prepare ('INSERT INTO Chapter
+        $preparation = $connexion->prepare ('INSERT INTO Chapter
             (`title`, `media`, `content`, `dateTime`, `idUser`)
              VALUES 
             (:title, :media, :content, :dateTime, :idUser)')->fetch(PDO::FETCH_CLASS, 'Chapter');
-        $chapter->bindParam(':title', $title, PDO::PARAM_STR);
-        $chapter->bindParam(':media', $media, PDO::PARAM_STR);
-        $chapter->bindParam(':content', $content, PDO::PARAM_STR);
-        $chapter->bindParam(':dateTime', $dateTime, PDO::PARAM_STR);
-        $chapter->bindParam(':idUser', $idUser, PDO::PARAM_STR);
-        $chapter->execute();
+        $preparation->bindParam(':title', $title, PDO::PARAM_STR);
+        $preparation->bindParam(':media', $media, PDO::PARAM_STR);
+        $preparation->bindParam(':content', $content, PDO::PARAM_STR);
+        $preparation->bindParam(':dateTime', $dateTime, PDO::PARAM_STR);
+        $preparation->bindParam(':idUser', $idUser, PDO::PARAM_STR);
+        $preparation->execute();
     }
     
 // FIND ALL or READ ALL
