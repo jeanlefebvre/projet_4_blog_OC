@@ -6,18 +6,16 @@ require_once ('Chapter.php');
 class ChapterRepository extends Model
 {
 // CREATE
-    public function create ($title, $media, $content, $dateTime, $idUser)
+    public function create ($title, $media, $content)
     {
         $connexion = $this->getBdd();
         $preparation = $connexion->prepare ('INSERT INTO Chapter
-            (`title`, `media`, `content`, `dateTime`, `idUser`)
+            (`title`, `media`, `content`)
              VALUES 
-            (:title, :media, :content, :dateTime, :idUser)')->fetch(PDO::FETCH_CLASS, 'Chapter');
+            (:title, :media, :content)')->fetch(PDO::FETCH_CLASS, 'Chapter');
         $preparation->bindParam(':title', $title, PDO::PARAM_STR);
         $preparation->bindParam(':media', $media, PDO::PARAM_STR);
         $preparation->bindParam(':content', $content, PDO::PARAM_STR);
-        $preparation->bindParam(':dateTime', $dateTime, PDO::PARAM_STR);
-        $preparation->bindParam(':idUser', $idUser, PDO::PARAM_STR);
         $preparation->execute();
     }
     
@@ -41,12 +39,12 @@ class ChapterRepository extends Model
     }
 
 // UPDATE
-    public function update ($id, $title, $media, $content, $dateTime, $idUSer)
+    public function update ($id, $title, $media, $content)
     {
         try 
         {
             $connexion = $this->getBdd();
-            $sql = "UPDATE `chapter` set title = '$title', media = '$media', content = '$content', dateTime = '$dateTime', idUser = '$idUser' WHERE id= '$id' ";
+            $sql = "UPDATE `chapter` set title = '$title', media = '$media', content = '$content', idUser = '$idUser' WHERE id= '$id' ";
             $stmt = $connexion->query($sql);
         }
         catch(PDOException $e)

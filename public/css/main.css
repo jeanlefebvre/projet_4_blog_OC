@@ -2,7 +2,7 @@ body {
     background-color: gainsboro;
     color: black;
 }
-p, .novel, .newsLetterContainer, .containerContact, .containerFormConnexion, .commentChapterForm, .containerCommentDisplay{
+p, .novel, .newsLetterContainer, .admin, .containerAdmin, .containerContact, .containerFormConnexion, .commentChapterForm, .containerCommentDisplay{
     margin: 10px;
     padding: 10px;
 }
@@ -24,11 +24,21 @@ img{
     width: 1920px;
     background-image: url(../media/bannerBlog.jpg);
 }
+.bannerAdmin{
+    height: 250px;
+    width: 1920px;
+    background-image: url(../media/bannerAdmin.jpg);
+}
+
 .titleBlog{
     padding-top: 10%;
-    
+    text-shadow: 3px 3px 3px silver;
 }
-.txtAuthor, .txtBlog, .novel, .newsLetterContainer, .navbar, .containerChapter, .containerContact, .containerFormConnexion, .commentChapterForm, .containerCommentDisplay{
+.titleAdmin{
+    padding-top: 5%;
+    text-shadow: 5px 5px 2px black;
+}
+.txtAuthor, .txtBlog, .novel, .newsLetterContainer, .navbar, .containerChapter, .containerContact, .containerFormConnexion, .commentChapterForm, .containerCommentDisplay, .containerAdmin{
     background-color: silver;
     border: thick double black;
 }

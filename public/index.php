@@ -12,7 +12,7 @@ include_once('../controllers/ConnexionController.php');
 include_once('../controllers/DisconnexionController.php');
 include_once('../controllers/AddComment.php');
 include_once('../controllers/ReportComment.php');
-//include_once('../controllers/Admin.php');
+include_once('../controllers/AdminController.php');
 
 $router = new Router();
 $router->addRouteAndController('/', new HomeController());
@@ -25,7 +25,7 @@ $router->addRouteAndController('/connexion', new ConnexionController());
 $router->addRouteAndController('/deconnexion', new DisconnexionController());
 $router->addRouteAndController('/addcomment', new AddComment());
 $router->addRouteAndController('/report', new ReportComment());
-//$router->addRouteAndController('/admin', new Admin());
+$router->addRouteAndController('/admin', new AdminController());
 
 $controller = $router->extractRouteFromGlobals();
 echo $controller->display();

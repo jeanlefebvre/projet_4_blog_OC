@@ -7,7 +7,7 @@
   
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item nav-link has-text-black" href="/">
+        <a class="navbar-item nav-link has-text-black has-text-weight-semibold" href="/">
           Accueil
         </a>
   
@@ -20,7 +20,7 @@
         </a>
   
         <div class="navbar-item has-dropdown is-hoverable" href="/chapitres">
-          <a class="navbar-link">
+          <a class="navbar-link has-text-black">
             Chapitres
           </a>
   
@@ -53,7 +53,7 @@
       <div class="navbar-end">
         <div class="buttons navbar-item">
          
-            <a class="button is-light nav-link has-text-black" href="/connexion">
+            <a class="button is-light nav-link has-text-black has-text-weight-semibold" href="/connexion">
               Connexion
             </a>
         </div>
