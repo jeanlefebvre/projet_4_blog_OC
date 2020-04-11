@@ -1,11 +1,11 @@
 <section class="menu">
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
       </a>
     </div>
   
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div id="navbarBasic" class="navbar-menu">
       <div class="navbar-start">
         <a class="navbar-item nav-link has-text-black has-text-weight-semibold" href="/">
           Accueil

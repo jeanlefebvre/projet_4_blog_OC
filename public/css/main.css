@@ -2,12 +2,14 @@ body {
     background-color: gainsboro;
     color: black;
 }
-p, .novel, .newsLetterContainer, .admin, .containerAdmin, .containerContact, .containerFormConnexion, .commentChapterForm, .containerCommentDisplay{
+p, .novel, .newsLetterContainer, .admin, .containerAdmin, .containerContact, .containerFormConnexion, .commentChapterForm, .containerCommentDisplay, .containerChapterForm{
     margin: 10px;
     padding: 10px;
 }
+.btn{
+    margin: 10px;
+}
 img{
-   
     padding: 10px;
 }
 .menu{
@@ -38,7 +40,7 @@ img{
     padding-top: 5%;
     text-shadow: 5px 5px 2px black;
 }
-.txtAuthor, .txtBlog, .novel, .newsLetterContainer, .navbar, .containerChapter, .containerContact, .containerFormConnexion, .commentChapterForm, .containerCommentDisplay, .containerAdmin{
+.txtAuthor, .txtBlog, .novel, .newsLetterContainer, .navbar, .containerChapter, .containerContact, .containerFormConnexion, .commentChapterForm, .containerCommentDisplay, .containerAdmin, .containerChapterForm{
     background-color: silver;
     border: thick double black;
 }

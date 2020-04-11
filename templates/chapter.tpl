@@ -23,7 +23,6 @@
                     </p>
                 </div>
             </div>
-        </article>
-        
+        </article>        
     </div>
 </section>
