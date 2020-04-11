@@ -1,27 +1,31 @@
 <section class="reportAdded">
-    <div class="containerReportAdded">
-        <h4 class="title is-4">Votre signalement à bien été ajouté, merci.</h4>
-        
-        <p>
-            Pour revenir à la liste des chaptires, cliquez
-            <a href="/chapitres">ici.</a> 
-        </p>
-        <p>
-            Pour revenir au chaptire 1, cliquez
-            <a href="/chapitre?id=1">ici.</a> 
-        </p>
-        <p>
-            Pour revenir au chaptire 2, cliquez
-            <a href="/chapitre?id=2">ici.</a> 
-        </p>
-        <p>
-            Pour revenir au chaptire 3, cliquez
-            <a href="/chapitre?id=3">ici.</a> 
-        </p>
-        <p>
-            Pour revenir au chaptire 4, cliquez
-            <a href="/chapitre?id=4">ici.</a> 
-        </p>
-
+    <h4 class="containerAdd title is-4 has-text-centered">Votre signalement à bien été ajouté, merci.</h4>
+    <h5 class="containerAdd subtitle is-5 has-text-centered">Choisissez votre chapitre.</h5><br/>
+    <div class="containerAdd columns">
+        <div class="containerReportAdded has-text-centered column ">
+            <a class="navbar-item nav-link has-text-black has-text-weight-semibold is-size-5" href="/chapitres">
+            Tous les chapitres 
+            </a>
+        </div>
+        <div class="containerReportAdded has-text-centered column">
+            <a class="navbar-item nav-link has-text-black has-text-weight-semibold is-size-5" href="/chapitre?id=1">
+            Chapitre 1
+            </a>
+        </div>
+        <div class="containerReportAdded has-text-centered column">
+            <a class="navbar-item nav-link has-text-black has-text-weight-semibold is-size-5" href="/chapitre?id=2">
+            Chapitre 2
+            </a>
+        </div>
+        <div class="containerReportAdded has-text-centered column">
+            <a class="navbar-item nav-link has-text-black has-text-weight-semibold is-size-5" href="/chapitre?id=3">
+            Chapitre 3
+            </a> 
+        </div>
+        <div class="containerReportAdded has-text-centered column">
+            <a class="navbar-item nav-link has-text-black has-text-weight-semibold is-size-5" href="/chapitre?id=4">
+            Chapitre 4
+            </a> 
+        </div>
     </div>
 </section>

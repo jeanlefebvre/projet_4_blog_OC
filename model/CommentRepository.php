@@ -10,13 +10,12 @@ class CommentRepository extends Model
     {
         $connexion = $this->getBdd();
         $preparation = $connexion->prepare ('INSERT INTO Comment
-            (`user`, `content`, `dateTime`,`idChapter`)
+            (`user`, `content`,`idChapter`)
              VALUES 
-            (:user, :content, :dateTime, :idChapter)');
+            (:user, :content, :idChapter)');
         $dateTime = (new DateTime())->format('Y-m-d');
         $preparation->bindParam(':user', $user, PDO::PARAM_STR);
         $preparation->bindParam(':content', $content, PDO::PARAM_STR);
-        $preparation->bindParam(':dateTime', $dateTime, PDO::PARAM_STR);
         $preparation->bindParam(':idChapter', $idChapter, PDO::PARAM_STR);
         $preparation->execute();
     }

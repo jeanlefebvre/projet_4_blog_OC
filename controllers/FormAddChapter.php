@@ -1,9 +1,7 @@
 <?php
 require_once (__DIR__.'/ControllerTemplate.php');
-require_once (__DIR__.'/../model/ChapterRepository.php');
 
-
-class AddChapter extends ControllerTemplate
+class FormAddChapter extends ControllerTemplate
 {
     public function display ()
     {
@@ -13,28 +11,30 @@ class AddChapter extends ControllerTemplate
         $bannerAdmin = '';
         $adminChapterTpl = new template(__DIR__.'/../templates/bannerAdmin.tpl');
         $bannerAdmin .= $adminChapterTpl->render();
-
         $tpl->set('banner', $bannerAdmin);
         
+        // appel du formulaire
         $adminChapter = '';
         $adminChapterForm = new template(__DIR__.'/../templates/adminChapterForm.tpl');
         $adminChapter .= $adminChapterForm->render();
         $tpl->set('content', $adminChapter);
-        return $tpl->render();     
+
+        return $tpl->render();   
+
+        $commentRepository = new CommentRepository();
+
+        if(isset($_POST['submitChapterForm']))
+        {
+            $title = $_POST['title'];
+            $media = $_POST['media']; 
+            $content = $_POST['chapterContent'];
+            $commentRepository->create($title, $media, $content);
+        }
         
-       $chapterRepository = new ChapterRepository();
-
-       if(isset($_POST['submitChapterForm']))
-       {
-           $title = $_POST['title'];
-           $media = $_POST['media']; 
-           $content = $_POST['chapterContent'];
-           $chapterRepository->create($title, $media, $content);
-       }
-       
-       header('location:/admin/chaptitre');
-       return '';
-
+        header('location:/admin/chapitre');
+        return '';
+        
+        
     }
 } 
 

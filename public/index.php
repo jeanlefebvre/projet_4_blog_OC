@@ -14,7 +14,7 @@ include_once('../controllers/AddComment.php');
 include_once('../controllers/ReportComment.php');
 include_once('../controllers/AdminController.php');
 include_once('../controllers/AdminChapter.php');
-include_once('../controllers/AddChapter.php');
+include_once('../controllers/FormAddChapter.php');
 
 $router = new Router();
 $router->addRouteAndController('/', new HomeController());
@@ -29,7 +29,7 @@ $router->addRouteAndController('/addcomment', new AddComment());
 $router->addRouteAndController('/report', new ReportComment());
 $router->addRouteAndController('/admin', new AdminController());
 $router->addRouteAndController('/admin/chapitre', new AdminChapter());
-$router->addRouteAndController('/admin/chapitre/creer', new AddChapter());
+$router->addRouteAndController('/admin/chapitre/creation', new FormAddChapter());
 
 $controller = $router->extractRouteFromGlobals();
 echo $controller->display();

@@ -2,7 +2,7 @@
     <div class="containerChapterForm">
       
         <h3 class="title is-3 titleChapter has-text-centered">Création d'un nouveau chapitre</h3>
-        <form class="commentForm" action="/" method="post">
+        <form class="commentForm"  method="post">
             <div class="field">
                 <label class="label">Titre du chapitre</label>
                 <div class="control">
@@ -13,7 +13,7 @@
               <div class="field">
                 <label class="label">Image du chapitre</label>
                 <div class="control">
-                  <input class="input" name="media" placeholder="Exemple : media/nom_de_l'image.jpg">
+                  <input class="input" name="media" placeholder="Exemple : media/nom_de_l'image.jpg" required>
                 </div>
               </div>
 
