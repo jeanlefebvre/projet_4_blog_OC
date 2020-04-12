@@ -43,7 +43,6 @@ class DisplayOneChapterController extends ControllerTemplate
         $idChapter = intval($_GET['id']);
         $comments = $commentRepository->findAllByIdChapter($idChapter);
         
-
         foreach($comments as $comment)
         {
             $commentdisplay = new template(__DIR__.'/../templates/commentDisplay.tpl');
@@ -53,7 +52,7 @@ class DisplayOneChapterController extends ControllerTemplate
             $commentdisplay->set('contentComment', ($comment->getContent()));
             $displayonechapterContent .= $commentdisplay->render();
         }
-      
+
         $tpl->set('conceptBlog', '');
         $tpl->set('previewNovel', '');
                                         

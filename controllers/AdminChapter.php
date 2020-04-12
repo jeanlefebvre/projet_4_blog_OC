@@ -3,7 +3,6 @@ require_once (__DIR__.'/../model/Chapter.php');
 require_once (__DIR__.'/../model/ChapterRepository.php');
 require_once (__DIR__.'/ControllerTemplate.php');
 
-
 class AdminChapter extends ControllerTemplate
 {
     public function display ()
@@ -25,7 +24,6 @@ class AdminChapter extends ControllerTemplate
         $chapterRepository = new ChapterRepository(); 
         $Chapters = $chapterRepository->findAll();
 
-       
         foreach($Chapters as $chapter)
         {
             $adminChaptertpl = new template(__DIR__.'/../templates/adminDisplayChapters.tpl');

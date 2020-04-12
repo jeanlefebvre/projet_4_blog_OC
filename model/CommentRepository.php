@@ -43,7 +43,7 @@ class CommentRepository extends Model
     {
         $connexion = $this->getBdd();
         $preparation = $connexion->prepare('SELECT * FROM `comment` WHERE `idChapter`= :idChapter');
-        $preparation->fetchAll(PDO::FETCH_CLASS, 'Comment');
+        $preparation->setFetchMode(PDO::FETCH_CLASS, 'Comment');
         $preparation->bindParam('idChapter', $idChapter, PDO::PARAM_INT);
         $preparation->execute();
         return $preparation->fetchAll();       

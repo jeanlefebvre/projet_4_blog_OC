@@ -16,6 +16,7 @@ include_once('../controllers/AdminController.php');
 include_once('../controllers/AdminChapter.php');
 include_once('../controllers/FormAddChapter.php');
 include_once('../controllers/AddChapter.php');
+include_once('../controllers/EditChapter.php');
 
 $router = new Router();
 $router->addRouteAndController('/', new HomeController());
@@ -32,6 +33,7 @@ $router->addRouteAndController('/admin', new AdminController());
 $router->addRouteAndController('/admin/chapitre', new AdminChapter());
 $router->addRouteAndController('/admin/chapitre/creation', new FormAddChapter());
 $router->addRouteAndController('/admin/chapitre/cree', new AddChapter());
+$router->addRouteAndController('/admin/chapitre/edition', new EditChapter());
 
 $controller = $router->extractRouteFromGlobals();
 echo $controller->display();
