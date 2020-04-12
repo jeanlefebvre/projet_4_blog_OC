@@ -21,7 +21,7 @@
               <div class="field">
                 <label class="label">Contenu du chapitre</label>
                 <div class="control">
-                  <textarea id="textarea" class="textarea" name="chapterContent" placeholder="Votre contenu"></textarea>
+                  <textarea id="textarea" class="textarea" name="chapterContent" placeholder="Votre contenu">{}</textarea>
                 </div>
               </div>
               

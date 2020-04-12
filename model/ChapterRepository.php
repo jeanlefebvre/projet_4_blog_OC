@@ -42,7 +42,7 @@ class ChapterRepository extends Model
     public function find ($id)
     {
         $connexion = $this->getBdd();
-        $preparation = $connexion->prepare('SELECT * FROM `chapter` WHERE id='.$id);
+        $preparation = $connexion->prepare('SELECT * FROM `chapter` WHERE id= :id');
         $preparation->setFetchMode(PDO::FETCH_CLASS, 'Chapter');
         $preparation->bindParam(':id', $id, PDO::PARAM_INT);
         $preparation->execute();
@@ -55,8 +55,11 @@ class ChapterRepository extends Model
         try 
         {
             $connexion = $this->getBdd();
-            $sql = "UPDATE `chapter` set title = '$title', media = '$media', content = '$content', idUser = '$idUser' WHERE id= '$id' ";
-            $stmt = $connexion->query($sql);
+            $preparation = $connexion->prepare("UPDATE `chapter` set title = :title, media = :media, content = :content, WHERE id= :id");
+            $preparation->bindParam(':title', $title, PDO::PARAM_STR);
+            $preparation->bindParam(':media', $media, PDO::PARAM_STR);
+            $preparation->bindParam(':content', $content, PDO::PARAM_STR);
+            $preparation->execute();
         }
         catch(PDOException $e)
         {
@@ -69,8 +72,9 @@ class ChapterRepository extends Model
         try 
         {
             $connexion = $this->getBdd();
-            $sql = "DELETE `chapter` WHERE id= '$id' ";
-            $stmt = $connexion->query($sql);
+            $preparation = $connexion->prepare("DELETE `chapter` WHERE id= :id");
+            $preparation->bindParam(':id', $id, PDO::PARAM_INT);
+            $preparation->execute();
         }
         catch(PDOException $e)
         {

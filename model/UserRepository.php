@@ -58,7 +58,7 @@ class UserRepository extends Model
         try 
         {
             $connexion = $this->getBdd();
-            $preparation = $connexion->prepare("UPDATE `user` set firstName =:firstName, lastName =:lastName, login =:login, mail =:mail, avatar =:avatar, passWordHash =:passWordHash WHERE id=:id");
+            $preparation = $connexion->prepare("UPDATE `user` set firstName = :firstName, lastName = :lastName, login = :login, mail = :mail, avatar = :avatar, passWordHash = :passWordHash WHERE id= :id");
             $preparation->bindParam(':lastName', $lastName, PDO::PARAM_STR);
             $preparation->bindParam(':login', $login, PDO::PARAM_STR);
             $preparation->bindParam(':mail', $mail, PDO::PARAM_STR);

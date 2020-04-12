@@ -42,19 +42,25 @@ class CommentRepository extends Model
     public function findAllByIdChapter($idChapter)
     {
         $connexion = $this->getBdd();
-        $comment = $connexion->query('SELECT * FROM `comment` WHERE `idChapter`='.$idChapter)->fetchAll(PDO::FETCH_CLASS, 'Comment');
-        return($comment);
-       
+        $preparation = $connexion->prepare('SELECT * FROM `comment` WHERE `idChapter`= :idChapter');
+        $preparation->fetchAll(PDO::FETCH_CLASS, 'Comment');
+        $preparation->bindParam('idChapter', $idChapter, PDO::PARAM_INT);
+        $preparation->execute();
+        return $preparation->fetchAll();       
     }
 
 // UPDATE
-    public function update ($id, $user, $report, $content, $dateTime, $idUSer)
+    public function update ($id, $user, $content, $report, $idUSer)
     {
         try 
         {
             $connexion = $this->getBdd();
-            $sql = "UPDATE `comment` set user = '$user', content = '$content', dateTime = '$dateTime', report = '$report', idUser = '$idUser' WHERE id= '$id', idChapter = '$idChapter' ";
-            $stmt = $connexion->query($sql);
+            $preparation = $connexion->prepare("UPDATE `comment` set user = :user, content = :content, report = :report, idUser = :idUser WHERE id= :id, idChapter = :idChapter");
+            $preparation->bindParam(':user', $user, PDO::PARAM_STR);
+            $preparation->bindParam(':content', $content, PDO::PARAM_STR);
+            $preparation->bindParam(':report', $report, PDO::PARAM_INT);
+            $preparation->bindParam(':idUser', $idUser, PDO::PARAM_INT);
+            $preparation->execute();
         }
         catch(PDOException $e)
         {
@@ -71,13 +77,14 @@ class CommentRepository extends Model
     }
 
 // DELETE
-    public function delete ($id)
+public function delete ($id)
     {
         try 
         {
             $connexion = $this->getBdd();
-            $sql = "DELETE `comment` WHERE id= '$id' ";
-            $stmt = $connexion->query($sql);
+            $preparation = $connexion->prepare("DELETE `chapter` WHERE id= :id");
+            $preparation->bindParam(':id', $id, PDO::PARAM_INT);
+            $preparation->execute();
         }
         catch(PDOException $e)
         {
