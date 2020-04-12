@@ -12,7 +12,8 @@ class ChapterRepository extends Model
         $preparation = $connexion->prepare ('INSERT INTO Chapter
             (`title`, `media`, `content`)
              VALUES 
-            (:title, :media, :content)')->fetch(PDO::FETCH_CLASS, 'Chapter');
+            (:title, :media, :content)');
+        $dateTime = (new DateTime())->format('Y-m-d');
         $preparation->bindParam(':title', $title, PDO::PARAM_STR);
         $preparation->bindParam(':media', $media, PDO::PARAM_STR);
         $preparation->bindParam(':content', $content, PDO::PARAM_STR);
@@ -27,6 +28,16 @@ class ChapterRepository extends Model
         return $chapters;
       
     }
+
+    public function findList()
+    {
+        $connexion = $this->getBdd();
+        $chapters = $connexion->query('SELECT id FROM `chapter`')->fetchAll(PDO::FETCH_ASSOC);
+        return $chapters;
+      
+    }
+
+
 //FIND ONE or READ ONE
     public function find ($id)
     {

@@ -17,19 +17,15 @@ class ReportComment extends ControllerTemplate
         $report .= $reportTpl->render();
 
         $tpl->set('content', $report);
-
-        return $tpl->render();
-
-        $tpl->set('content', $report);
         
         if(isset($_POST['reportComment']))
         {
             $commentRepository = new CommentRepository();
-
+            
             $id = $_POST['idComment']; /*idComment */;
             $commentRepository->report($id);
         }
-
+        return $tpl->render();
     }
     
     

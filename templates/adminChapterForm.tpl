@@ -2,7 +2,8 @@
     <div class="containerChapterForm">
       
         <h3 class="title is-3 titleChapter has-text-centered">Création d'un nouveau chapitre</h3>
-        <form class="commentForm"  method="post">
+        <form class="commentForm" action="/admin/chapitre/cree"  method="post" enctype="multipart/form-data">
+        <!-- enctype="multipart/form-data = envoie de fichier -->
             <div class="field">
                 <label class="label">Titre du chapitre</label>
                 <div class="control">
@@ -13,7 +14,7 @@
               <div class="field">
                 <label class="label">Image du chapitre</label>
                 <div class="control">
-                  <input class="input" name="media" placeholder="Exemple : media/nom_de_l'image.jpg" required>
+                  <input class="input" type="file" name="image" placeholder="Exemple : media/nom_de_l'image.jpg" required>
                 </div>
               </div>
 

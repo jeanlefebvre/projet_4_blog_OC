@@ -11,12 +11,26 @@ abstract class ControllerTemplate
 
         $tpl->set('banner', $tpl->getFile(__DIR__.'/../templates/banner.tpl'));
 
+        $chapterMenu = '';
+        $chapters = ' <a class="navbar-item nav-link has-text-black" href="/chapitre?id=%s">
+        Chapitre %s
+        </a>';
+
+        $chaptersRepository = new ChapterRepository();
+        $list = $chaptersRepository->findList();
+        foreach ($list as $chapter) {
+            $chapterMenu .= sprintf($chapters, $chapter['id'], $chapter['id']);
+        }
+
+
         if (($_SESSION['connected'] ?? 0) === 1) {
             $tpl->set('menuHeader', $tpl->getFile(__DIR__.'/../templates/menuHeaderConnected.tpl'));
         } else {
             $tpl->set('menuHeader', $tpl->getFile(__DIR__.'/../templates/menuHeaderDisconnected.tpl'));
         }
        
+        $tpl->set('chapterMenu', $chapterMenu);
+
         $tpl->set('footer', $tpl->getFile(__DIR__.'/../templates/footer.tpl'));
     }
 //securise l'admin 

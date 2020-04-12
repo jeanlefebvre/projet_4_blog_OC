@@ -18,27 +18,34 @@ class AddChapter extends ControllerTemplate
         $addedChapter = '';
         $addedChapterTpl = new template(__DIR__.'/../templates/addedChapter.tpl');
         $addedChapter .= $addedChapterTpl->render();
-        $tpl->set('content', $addedChapter);
+        
 
         $adminContent = '';
 
         $adminTpl = new template(__DIR__.'/../templates/admin.tpl');
         $adminContent .= $adminTpl->render();
 
-        $tpl->set('content', $adminContent);
+        $tpl->set('content', $addedChapter . $adminContent);
 
-        return $tpl->render();
+        
 
         $chapterRepository = new ChapterRepository();
-
         if(isset($_POST['submitChapterForm']) && !empty($_POST['chapterContent']))
         {
             $title = $_POST['title'];
-            $media = $_POST['media']; 
-            $content = $_POST['chapterContent'];
-            $commentRepository->create($title, $media, $content);
+            $uploaddir = __DIR__.'/../public/media/';
+            $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {  
+                $media = '/media/' .  basename($_FILES['image']['name']);
+                $content = $_POST['chapterContent'];
+                $chapterRepository->create($title, $media, $content);
+            // ici le telechargement est ok.
+            } else {
+                header('location:/admin/chapter/creation');
+            // ici le telechargement est en erreur
+            }
         }
-        
+        return $tpl->render();
     }
 } 
 
