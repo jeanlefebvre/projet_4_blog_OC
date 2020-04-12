@@ -1,5 +1,6 @@
 <?php
 require_once (__DIR__.'/ControllerTemplate.php');
+require_once (__DIR__.'/../model/ChapterRepository.php');
 
 class FormAddChapter extends ControllerTemplate
 {
@@ -20,20 +21,6 @@ class FormAddChapter extends ControllerTemplate
         $tpl->set('content', $adminChapter);
 
         return $tpl->render();   
-
-        $commentRepository = new CommentRepository();
-
-        if(isset($_POST['submitChapterForm']))
-        {
-            $title = $_POST['title'];
-            $media = $_POST['media']; 
-            $content = $_POST['chapterContent'];
-            $commentRepository->create($title, $media, $content);
-        }
-        
-        header('location:/admin/chapitre');
-        return '';
-        
         
     }
 } 

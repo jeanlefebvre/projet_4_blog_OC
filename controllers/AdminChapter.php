@@ -21,8 +21,7 @@ class AdminChapter extends ControllerTemplate
         
         $adminChapterBtnCreateTpl = new template(__DIR__.'/../templates/adminChapterBtnCreate.tpl');
         $adminChapter .= $adminChapterBtnCreateTpl->render();
-
-        // appel de tous les chapitres pour l'admin 
+ 
         $chapterRepository = new ChapterRepository(); 
         $Chapters = $chapterRepository->findAll();
 
