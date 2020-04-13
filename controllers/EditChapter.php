@@ -16,6 +16,14 @@ class EditChapter extends ControllerTemplate
         $tpl->set('banner', $bannerAdmin);
 
         $chapterRepository = new ChapterRepository();
+        
+        $id = $_GET['id'] ?? 0;
+        $chapter = $chapterRepository->find($id);
+        if($chapter == false){
+            $tpl->set('content', '<h2 class="title is-2 has-text-centered">Ce chapitre n\'existe pas</h2>');
+            return $tpl->render();
+        }
+        
 
         $id = $_GET['id'] ?? 0;
         $chapter = $chapterRepository->find($id);

@@ -16,6 +16,14 @@ class AdminCommentDelete extends ControllerTemplate
         $tpl->set('banner', $bannerAdmin);
 
         $commentRepository = new CommentRepository();
+        
+        $id = $_GET['id'] ?? 0;
+        $comment = $commentRepository->find($id);
+        if($comment == false){
+            $tpl->set('content', '<h2 class="title is-2 has-text-centered">Ce chapitre n\'existe pas</h2>');
+            return $tpl->render();
+        }
+
 
         $id = $_GET['id'] ?? 0;
         $chapter = $commentRepository->find($id);
