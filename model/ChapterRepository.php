@@ -50,35 +50,37 @@ class ChapterRepository extends Model
     }
 
 // UPDATE
-    public function update ($id, $title, $media, $content)
+    public function update ($id, $title, $content)
     {
+        $error = null;
         try 
         {
             $connexion = $this->getBdd();
-            $preparation = $connexion->prepare("UPDATE `chapter` set title = :title, media = :media, content = :content, WHERE id= :id");
+            $preparation = $connexion->prepare("UPDATE `chapter` set title = :title, content = :content WHERE id= :id");
+            $preparation->bindParam(':id', $id, PDO::PARAM_INT);
             $preparation->bindParam(':title', $title, PDO::PARAM_STR);
-            $preparation->bindParam(':media', $media, PDO::PARAM_STR);
             $preparation->bindParam(':content', $content, PDO::PARAM_STR);
             $preparation->execute();
         }
         catch(PDOException $e)
         {
-            echo $sql . "<br>" . $e->getMessage();
+            echo $error . "<br>" . $e->getMessage();
         }
     }
 // DELETE
     public function delete ($id)
     {
+        $error = null;
         try 
         {
             $connexion = $this->getBdd();
-            $preparation = $connexion->prepare("DELETE `chapter` WHERE id= :id");
+            $preparation = $connexion->prepare("DELETE FROM `chapter` WHERE id= :id");
             $preparation->bindParam(':id', $id, PDO::PARAM_INT);
             $preparation->execute();
         }
         catch(PDOException $e)
         {
-            echo $sql . "<br>" . $e->getMessage();
+            echo $error . "<br>" . $e->getMessage();
         }
     }
 }

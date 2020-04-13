@@ -29,6 +29,7 @@ class AdminChapter extends ControllerTemplate
             $adminChaptertpl = new template(__DIR__.'/../templates/adminDisplayChapters.tpl');
             $adminChaptertpl->set('idChapter', $chapter->getId());
             $adminChaptertpl->set('titleChapter', strip_tags($chapter->getTitle()));
+            $adminChaptertpl->set('mediaChapter', strip_tags($chapter->getMedia()));
             $adminChaptertpl->set('dateTimeChapter', $chapter->getDateTime());
             $adminChaptertpl->set('contentChapter', strip_tags($chapter->getContent()));
             $adminChapter .= $adminChaptertpl->render();

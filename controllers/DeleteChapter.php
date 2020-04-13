@@ -3,7 +3,7 @@ require_once (__DIR__.'/ControllerTemplate.php');
 require_once (__DIR__.'/../model/Chapter.php');
 require_once (__DIR__.'/../model/ChapterRepository.php');
 
-class EditChapter extends ControllerTemplate
+class DeleteChapter extends ControllerTemplate
 {
     public function display ()
     {
@@ -20,15 +20,14 @@ class EditChapter extends ControllerTemplate
         $id = $_GET['id'] ?? 0;
         $chapter = $chapterRepository->find($id);
 
-        $adminChapterEdit = '';
-        $adminChapterEditTpl = new template(__DIR__.'/../templates/adminChapterEdit.tpl');
-        $adminChapterEditTpl->set('idChapter', $chapter->getId());
-        $adminChapterEditTpl->set('titleChapter', strip_tags($chapter->getTitle()));
-        $adminChapterEditTpl->set('contentChapter', strip_tags($chapter->getContent()));
+        $deleteChapter = '';
+        $deleteChapterTpl = new template(__DIR__.'/../templates/adminChapterDelete.tpl');
+        $deleteChapterTpl->set('idChapter', $chapter->getId());
+       
+        $deleteChapter .= $deleteChapterTpl->render();
+        $tpl->set('content', $deleteChapter);
 
-        $adminChapterEdit .= $adminChapterEditTpl->render();
-        $tpl->set('content', $adminChapterEdit);
-        
+
         return $tpl->render();
     }
 }

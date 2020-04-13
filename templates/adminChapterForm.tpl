@@ -21,14 +21,15 @@
               <div class="field">
                 <label class="label">Contenu du chapitre</label>
                 <div class="control">
-                  <textarea id="textarea" class="textarea" name="chapterContent" placeholder="Votre contenu">{}</textarea>
+                  <textarea id="textarea" class="textarea" name="chapterContent" placeholder="Votre contenu"></textarea>
                 </div>
               </div>
               
-              <div class="field is-grouped">
+              <div class="field">
                 <div class="control">
                   <input class="button is-info" name="submitChapterForm" type="submit" value="Valider">
                 </div>
+              </div>
         </form>
     </div>
 </section>

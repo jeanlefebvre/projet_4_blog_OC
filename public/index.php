@@ -17,6 +17,9 @@ include_once('../controllers/AdminChapter.php');
 include_once('../controllers/FormAddChapter.php');
 include_once('../controllers/AddChapter.php');
 include_once('../controllers/EditChapter.php');
+include_once('../controllers/EditedChapter.php');
+include_once('../controllers/DeleteChapter.php');
+include_once('../controllers/DeletedChapter.php');
 
 $router = new Router();
 $router->addRouteAndController('/', new HomeController());
@@ -34,6 +37,9 @@ $router->addRouteAndController('/admin/chapitre', new AdminChapter());
 $router->addRouteAndController('/admin/chapitre/creation', new FormAddChapter());
 $router->addRouteAndController('/admin/chapitre/cree', new AddChapter());
 $router->addRouteAndController('/admin/chapitre/edition', new EditChapter());
+$router->addRouteAndController('/admin/chapitre/edited', new EditedChapter());
+$router->addRouteAndController('/admin/chapitre/supprime', new DeleteChapter());
+$router->addRouteAndController('/admin/chapitre/deleted', new DeletedChapter());
 
 $controller = $router->extractRouteFromGlobals();
 echo $controller->display();

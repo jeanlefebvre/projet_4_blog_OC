@@ -52,10 +52,12 @@ class CommentRepository extends Model
 // UPDATE
     public function update ($id, $user, $content, $report, $idUSer)
     {
+        $error = null;
         try 
         {
             $connexion = $this->getBdd();
             $preparation = $connexion->prepare("UPDATE `comment` set user = :user, content = :content, report = :report, idUser = :idUser WHERE id= :id, idChapter = :idChapter");
+            $preparation->bindParam(':id', $id, PDO::PARAM_INT);
             $preparation->bindParam(':user', $user, PDO::PARAM_STR);
             $preparation->bindParam(':content', $content, PDO::PARAM_STR);
             $preparation->bindParam(':report', $report, PDO::PARAM_INT);
@@ -64,7 +66,7 @@ class CommentRepository extends Model
         }
         catch(PDOException $e)
         {
-            echo $sql . "<br>" . $e->getMessage();
+            echo $error . "<br>" . $e->getMessage();
         }
     }
 // UPDATE Incremente Report
@@ -79,16 +81,36 @@ class CommentRepository extends Model
 // DELETE
 public function delete ($id)
     {
+        $error = null;
         try 
         {
             $connexion = $this->getBdd();
-            $preparation = $connexion->prepare("DELETE `chapter` WHERE id= :id");
+            $preparation = $connexion->prepare("DELETE `comment` WHERE id= :id");
             $preparation->bindParam(':id', $id, PDO::PARAM_INT);
             $preparation->execute();
         }
         catch(PDOException $e)
         {
-            echo $sql . "<br>" . $e->getMessage();
+            echo $error . "<br>" . $e->getMessage();
         }
     }
+
+// DELETE by ChapterId
+public function deleteByChapterId ($idChapter)
+    {
+        $error = null;
+        try 
+        {
+            $connexion = $this->getBdd();
+            $preparation = $connexion->prepare("DELETE FROM `comment` WHERE idChapter= :idChapter");
+            $preparation->bindParam(':idChapter', $idChapter, PDO::PARAM_INT);
+            $preparation->execute();
+        }
+        catch(PDOException $e)
+        {
+            echo $error . "<br>" . $e->getMessage();
+        }
+    }
+
 }
+

@@ -55,6 +55,7 @@ class UserRepository extends Model
 // UPDATE
     public function update ($id, $firstName, $lastName, $login, $mail, $avatar, $passWordHash)
     {
+        $error = null;
         try 
         {
             $connexion = $this->getBdd();
@@ -71,12 +72,13 @@ class UserRepository extends Model
         }
         catch(PDOException $e)
         {
-            echo $sql . "<br>" . $e->getMessage();
+            echo $error . "<br>" . $e->getMessage();
         }
     }
 // DELETE
     public function delete ($id)
     {
+        $error = null;
         try 
         {
             $connexion = $this->getBdd();
@@ -86,7 +88,7 @@ class UserRepository extends Model
         }
         catch(PDOException $e)
         {
-            echo $sql . "<br>" . $e->getMessage();
+            echo $error . "<br>" . $e->getMessage();
         }
     }
 }

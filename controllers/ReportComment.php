@@ -22,13 +22,9 @@ class ReportComment extends ControllerTemplate
         {
             $commentRepository = new CommentRepository();
             
-            $id = $_POST['idComment']; /*idComment */;
+            $id = $_POST['idComment'];
             $commentRepository->report($id);
         }
         return $tpl->render();
     }
-    
-    
-
-
 }

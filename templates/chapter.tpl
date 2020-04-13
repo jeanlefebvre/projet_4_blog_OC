@@ -4,10 +4,10 @@
         <h4 class="title is-4 titleChapter">Chapitre {idChapter} : {titleChapter}</h4>
         <article class="media">
             <figure class="media-left">
-                <p class="image is-128x128">
+                <span class="image is-128x128">
                     <!--import d'image du chapitre correspondant dans la bdd-->
                     <img class="image" src="{mediaChapter}">
-                </p>
+                </span>
             </figure>    
             <div class="media-content">
                 <div class="content">
