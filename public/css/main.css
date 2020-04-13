@@ -2,7 +2,7 @@ body {
     background-color: gainsboro;
     color: black;
 }
-p, .novel, .newsLetterContainer, .admin, .containerAdmin, .containerContact, .containerFormConnexion, .commentChapterForm, .containerCommentDisplay, .containerAdminChapterDelete, .containerChapterForm, .containerAdd, .containerReportAdded, .adminContainerCommentDisplay{
+p, .novel, .newsLetterContainer, .admin, .containerAdmin, .containerContact, .containerFormConnexion, .commentChapterForm, .containerCommentDisplay, .containerAdminChapterDelete, .containerChapterForm, .containerAdd, .containerReportAdded, .adminContainerCommentDisplay, .containerCommentForm{
     margin: 10px;
     padding: 10px;
 }
@@ -40,7 +40,7 @@ img{
     padding-top: 5%;
     text-shadow: 5px 5px 2px black;
 }
-.txtAuthor, .txtBlog, .novel, .newsLetterContainer, .navbar, .containerChapter, .containerContact, .containerFormConnexion, .commentChapterForm, .containerAdminChapterDelete, .containerCommentDisplay, .containerAdmin, .containerChapterForm, .containerReportAdded, .adminContainerCommentDisplay{
+.txtAuthor, .txtBlog, .novel, .newsLetterContainer, .navbar, .containerChapter, .containerContact, .containerFormConnexion, .commentChapterForm, .containerAdminChapterDelete, .containerCommentDisplay, .containerAdmin, .containerChapterForm, .containerReportAdded, .adminContainerCommentDisplay, .containerCommentForm{
     background-color: silver;
     border: thick double black;
 }
