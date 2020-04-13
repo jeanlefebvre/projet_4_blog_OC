@@ -25,9 +25,17 @@ class CommentRepository extends Model
     {
         $connexion = $this->getBdd();
         $comment = $connexion->query('SELECT * FROM `comment`')->fetchAll(PDO::FETCH_CLASS, 'Comment');
-        return $comment;
-      
+        return $comment;     
     }
+    
+// FIND ALL ODER BY REPORT
+public function findAllOrderByReport()
+{
+    $connexion = $this->getBdd();
+    $comment = $connexion->query('SELECT * FROM `comment` ORDER BY `report` DESC')->fetchAll(PDO::FETCH_CLASS, 'Comment');
+    return $comment;
+}
+
 //FIND ONE or READ ONE
     public function find ($id)
     {

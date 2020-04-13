@@ -27,7 +27,6 @@ class DeleteChapter extends ControllerTemplate
         $deleteChapter .= $deleteChapterTpl->render();
         $tpl->set('content', $deleteChapter);
 
-
         return $tpl->render();
     }
 }

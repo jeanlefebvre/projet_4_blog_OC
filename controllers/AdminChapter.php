@@ -17,7 +17,7 @@ class AdminChapter extends ControllerTemplate
         $adminChapter = '';
 
         $tpl->set('banner', $bannerAdmin);
-        
+ 
         $adminChapterBtnCreateTpl = new template(__DIR__.'/../templates/adminChapterBtnCreate.tpl');
         $adminChapter .= $adminChapterBtnCreateTpl->render();
  

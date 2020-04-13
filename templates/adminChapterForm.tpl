@@ -25,10 +25,13 @@
                 </div>
               </div>
               
-              <div class="field">
+              <div class="field is-grouped">
                 <div class="control">
-                  <input class="button is-info" name="submitChapterForm" type="submit" value="Valider">
+                  <input class="button is-primary has-text-black has-text-weight-semibold is-size-6" name="submitChapterForm" type="submit" value="Valider">
                 </div>
+                <button class="button is-info has-text-black">
+                  <a class="has-text-black has-text-weight-semibold is-size-6" href="/admin/chapitre">Annuler</a>
+                </button>
               </div>
         </form>
     </div>
