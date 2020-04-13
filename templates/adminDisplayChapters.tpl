@@ -20,7 +20,7 @@
         <button class="btn button is-warning is-inline-block">
             <a class="has-text-black has-text-weight-semibold is-size-6" href="/admin/chapitre/edition?id={idChapter}">Éditer</a>
         </button>
-        <form class="btn deleteChapterForm is-inline-block" action="/admin/chapitre/supprime?id={idChapter}" method="post">
+        <form class="btn deleteChapterForm is-inline-block" action="/admin/chapitre/delete?id={idChapter}" method="post">
             <div class="field">
                 <div class="control">
                     <input type="hidden" name="idChapter" value="{idChapter}">

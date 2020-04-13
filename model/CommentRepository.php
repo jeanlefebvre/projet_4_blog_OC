@@ -58,18 +58,15 @@ public function findAllOrderByReport()
     }
 
 // UPDATE
-    public function update ($id, $user, $content, $report, $idUSer)
+    public function update ($id, $content)
     {
         $error = null;
         try 
         {
             $connexion = $this->getBdd();
-            $preparation = $connexion->prepare("UPDATE `comment` set user = :user, content = :content, report = :report, idUser = :idUser WHERE id= :id, idChapter = :idChapter");
+            $preparation = $connexion->prepare("UPDATE `comment` set content = :content, report = 0 WHERE id= :id");
             $preparation->bindParam(':id', $id, PDO::PARAM_INT);
-            $preparation->bindParam(':user', $user, PDO::PARAM_STR);
             $preparation->bindParam(':content', $content, PDO::PARAM_STR);
-            $preparation->bindParam(':report', $report, PDO::PARAM_INT);
-            $preparation->bindParam(':idUser', $idUser, PDO::PARAM_INT);
             $preparation->execute();
         }
         catch(PDOException $e)
@@ -93,7 +90,7 @@ public function delete ($id)
         try 
         {
             $connexion = $this->getBdd();
-            $preparation = $connexion->prepare("DELETE `comment` WHERE id= :id");
+            $preparation = $connexion->prepare("DELETE FROM `comment` WHERE id= :id");
             $preparation->bindParam(':id', $id, PDO::PARAM_INT);
             $preparation->execute();
         }

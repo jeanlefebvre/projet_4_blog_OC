@@ -19,7 +19,7 @@
         <button class="btn button is-warning is-inline-block">
             <a class="has-text-black has-text-weight-semibold is-size-6" href="/admin/commentaire/edition?id={idComment}">Éditer</a>
         </button>
-        <form class="btn deleteChapterForm is-inline-block" action="/admin/commentaire/supprime?id={idComment}" method="post">
+        <form class="btn deleteChapterForm is-inline-block" action="/admin/commentaire/delete?id={idComment}" method="post">
             <div class="field">
                 <div class="control">
                     <input type="hidden" name="idChapter" value="{idComment}">

@@ -2,7 +2,7 @@
   <div class="containerCommentForm">
 
     <h3 class="title is-3 titleComment has-text-centered">Edition du commentaire n° {idComment}</h3>
-    <form class="commentForm" action="/admin/comment/edited"  method="post">
+    <form class="commentForm" action="/admin/commentaire/edited"  method="post">
       <input type="hidden" name="idComment" value="{idComment}">
 
       <div class="field">
@@ -14,7 +14,7 @@
 
       <div class="field is-grouped">
         <div class="control">
-          <input class="button is-primary has-text-black has-text-weight-semibold is-size-6" name="submitEditChapterForm" type="submit" value="Valider">
+          <input class="button is-primary has-text-black has-text-weight-semibold is-size-6" name="submitEditCommentForm" type="submit" value="Valider">
         </div>
 
         <button class="button is-info has-text-black">

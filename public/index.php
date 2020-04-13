@@ -22,6 +22,9 @@ include_once('../controllers/DeleteChapter.php');
 include_once('../controllers/DeletedChapter.php');
 include_once('../controllers/AdminCommentsDisplay.php');
 include_once('../controllers/AdminCommentEdit.php');
+include_once('../controllers/AdminCommentEdited.php');
+include_once('../controllers/AdminCommentDelete.php');
+include_once('../controllers/AdminCommentDeleted.php');
 
 $router = new Router();
 $router->addRouteAndController('/', new HomeController());
@@ -40,10 +43,13 @@ $router->addRouteAndController('/admin/chapitre/creation', new FormAddChapter())
 $router->addRouteAndController('/admin/chapitre/cree', new AddChapter());
 $router->addRouteAndController('/admin/chapitre/edition', new EditChapter());
 $router->addRouteAndController('/admin/chapitre/edited', new EditedChapter());
-$router->addRouteAndController('/admin/chapitre/supprime', new DeleteChapter());
+$router->addRouteAndController('/admin/chapitre/delete', new DeleteChapter());
 $router->addRouteAndController('/admin/chapitre/deleted', new DeletedChapter());
 $router->addRouteAndController('/admin/commentaire', new AdminCommentsDisplay());
 $router->addRouteAndController('/admin/commentaire/edition', new AdminCommentEdit());
+$router->addRouteAndController('/admin/commentaire/edited', new AdminCommentEdited());
+$router->addRouteAndController('/admin/commentaire/delete', new AdminCommentDelete());
+$router->addRouteAndController('/admin/commentaire/deleted', new AdminCommentDeleted());
 
 $controller = $router->extractRouteFromGlobals();
 echo $controller->display();
