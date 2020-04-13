@@ -30,7 +30,7 @@ class DisplayOneChapterController extends ControllerTemplate
         $chaptertpl->set('titleChapter', strip_tags($chapter->getTitle()));
         $chaptertpl->set('mediaChapter', $chapter->getMedia());
         $chaptertpl->set('dateTimeChapter', $chapter->getDateTime());
-        $chaptertpl->set('contentChapter', strip_tags($chapter->getContent()));
+        $chaptertpl->set('contentChapter', ($chapter->getContent()));
         $displayonechapterContent .= $chaptertpl->render();
         
         //affiche le formulaire de commentaire
@@ -47,9 +47,9 @@ class DisplayOneChapterController extends ControllerTemplate
         {
             $commentdisplay = new template(__DIR__.'/../templates/commentDisplay.tpl');
             $commentdisplay->set('idComment', $comment->getId());
-            $commentdisplay->set('userComment', $comment->getUserName());
+            $commentdisplay->set('userComment', strip_tags($comment->getUserName()));
             $commentdisplay->set('dateTimeComment', $comment->getDateTime());
-            $commentdisplay->set('contentComment', ($comment->getContent()));
+            $commentdisplay->set('contentComment', strip_tags($comment->getContent()));
             $displayonechapterContent .= $commentdisplay->render();
         }
 
