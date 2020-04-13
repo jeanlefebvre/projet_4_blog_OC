@@ -32,13 +32,15 @@ class AddChapter extends ControllerTemplate
         $chapterRepository = new ChapterRepository();
         if(isset($_POST['submitChapterForm']) && !empty($_POST['chapterContent']))
         {
+            $id = $_POST['numberChapter'];
             $title = $_POST['title'];
             $uploaddir = __DIR__.'/../public/media/';
             $uploadfile = $uploaddir . basename($_FILES['image']['name']);
             if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {  
                 $media = '/media/' .  basename($_FILES['image']['name']);
+
                 $content = $_POST['chapterContent'];
-                $chapterRepository->create($title, $media, $content);
+                $chapterRepository->create($id, $title, $media, $content);
             // ici le telechargement est ok.
             } else {
                 header('location:/admin/chapter/creation');

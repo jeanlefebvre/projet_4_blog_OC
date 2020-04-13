@@ -6,14 +6,15 @@ require_once ('Chapter.php');
 class ChapterRepository extends Model
 {
 // CREATE
-    public function create ($title, $media, $content)
+    public function create ($id, $title, $media, $content)
     {
         $connexion = $this->getBdd();
         $preparation = $connexion->prepare ('INSERT INTO Chapter
-            (`title`, `media`, `content`)
+            (`id`, `title`, `media`, `content`)
              VALUES 
-            (:title, :media, :content)');
+            (:id, :title, :media, :content)');
         $dateTime = (new DateTime())->format('Y-m-d');
+        $preparation->bindParam(':id', $id, PDO::PARAM_INT);
         $preparation->bindParam(':title', $title, PDO::PARAM_STR);
         $preparation->bindParam(':media', $media, PDO::PARAM_STR);
         $preparation->bindParam(':content', $content, PDO::PARAM_STR);
