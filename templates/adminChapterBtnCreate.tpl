@@ -1,11 +1,8 @@
 <section class="adminChapter">
-    <div class="containerChapter columns">
-        <h4 class="title is-4 titleChapter column is-offset-1">Création d'un chapitre : </h4>
-        <div class="column">
-            <button class="button is-info">
+    <div class="containerChapter">
+        <h4 class="title is-4 titleChapter">Création d'un chapitre : </h4>
+            <button class="btn button is-info">
                 <a class="has-text-black has-text-weight-semibold is-size-6" href="/admin/chapitre/creation">Créer</a>
-            </button>
-        </div>
-             
+            </button>            
     </div>  
 </section>
